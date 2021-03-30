@@ -9,17 +9,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Rmdhn-20/wa-bot.git"
+    "url": "git+https://github.com/Rmdhn-20/Gabut-Bot.git"
   },
   "keywords": [
-    "Whatsapp-Bot"
+    "Whatsapp-Bot",
+    "Wa-bot"
   ],
   "author": "EkuziKA",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Rmdhn-20/wa-bot/issues"
+    "url": "https://github.com/Rmdhn-20/Gabut-Bot/issues"
   },
-  "homepage": "https://github.com/Rmdhn-20/wa-bot#readme",
+  "homepage": "https://github.com/Rmdhn-20/Gabut-Bot#readme",
   "dependencies": {
     "@open-wa/wa-automate": "^3.10.0",
     "app-root-path": "^3.0.0",
