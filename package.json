@@ -1,6 +1,6 @@
 {
-  "name": "wa-bot",
-  "version": "1.2.0",
+  "name": "Gabut-Bot",
+  "version": "1.0.0",
   "description": "whatsapp-bot with NodeJS",
   "main": "index.js",
   "scripts": {
