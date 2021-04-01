@@ -199,8 +199,8 @@ moment.tz.setDefault('Asia/Jakarta').locale('id')
 		const isQuotedGif = quotedMsg && quotedMsg.type === 'gif'
 		const isQuotedFile = quotedMsg && quotedMsg.type === 'file'
 		const reason = q ? q : 'Gada'
-		const gifcrop = { crop: true, square: 240, fps: 30, loop: 0, startTime: `00:00:00.0`, endTime: `00:00:10.0`, author : 'Owner? @serbanewbie20', pack: 'Gabut-Bot', keepScale: false }
-		const gifxyz = { crop: false, square: 240, fps: 30, loop: 0, startTime: `00:00:00.0`, endTime: `00:00:10.0`, author : 'Owner? @serbanewbie20', pack: 'Gabut-Bot', keepScale: true }
+		const gifcrop = { crop: true, square: 240, fps: 30, loop: 0, startTime: `00:00:00.0`, endTime: `00:00:10.0` }
+		const gifxyz = { crop: false, square: 240, fps: 30, loop: 0, startTime: `00:00:00.0`, endTime: `00:00:10.0` }
 		const StickerMetadatacrop = { author : 'Owner? @serbanewbie20', pack: 'Gabut-Bot', keepScale: false }
 		const StickerMetadata = { author : 'Owner? @serbanewbie20', pack: 'Gabut-Bot', keepScale: true }
 
@@ -443,7 +443,7 @@ moment.tz.setDefault('Asia/Jakarta').locale('id')
 
 
         const mess = {
-            wait: '[ WAIT ] Sedang di proses⏳ silahkan tunggu sebentar',
+            wait: '[ WAIT ] Sedang di proses ⏳ silahkan tunggu sebentar',
             error: {
                 St: `[❗] Kirim gambar dengan caption *${prefix}sticker* atau tag gambar yang sudah dikirim`,
                 Ti: `[❗] Replay sticker dengan caption *${prefix}stickertoimg* atau tag sticker yang sudah dikirim`,
@@ -577,7 +577,7 @@ moment.tz.setDefault('Asia/Jakarta').locale('id')
         if (isAutoStikerOn && isMedia && isImage) {
             const mediaData = await decryptMedia(message, uaOverride)
             const imageBase64 = `data:${mimetype};base64,${mediaData.toString('base64')}`
-            await aruga.sendImageAsSticker(from, imageBase64, {keepScale: true})
+            await aruga.sendImageAsSticker(from, imageBase64, {author: `@serbanewbie20`, pack: `Gabut-Bot`, keepScale: true})
                 .then(async () => {
                     console.log(`Sticker processed for ${processTime(t, moment())} seconds`)
                 })
@@ -608,31 +608,31 @@ moment.tz.setDefault('Asia/Jakarta').locale('id')
 	const apakah = [
             'Ya',
             'Tidak',
-			'Mungkin',
+	    'Mungkin',
             'Coba Ulangi'
             ]
 
         const bisakah = [
             'Bisa',
             'Tidak Bisa',
-			'Mungkin',
+	    'Mungkin',
             'Coba Ulangi'
             ]
 
         const kapan = [
-			'1 Menit lagi',
-			'1 Jam lagi',
-			'1 Hari lagi',
-			'10 Hari lagi',
+	    '1 Menit lagi',
+	    '1 Jam lagi',
+	    '1 Hari lagi',
+	    '10 Hari lagi',
             '1 Minggu lagi',
             '1 Bulan lagi',
-			'10 Bulan lagi',
+	    '10 Bulan lagi',
             '1 Tahun lagi',
-			'10 Tahun lagi',
+	    '10 Tahun lagi',
             '100 tahun lagi',
             'gatau',
             'Tahun depan',
-			'Sekarang',
+	    'Sekarang',
             ]
 
         const rate = [
@@ -731,7 +731,7 @@ moment.tz.setDefault('Asia/Jakarta').locale('id')
                         const mediaData = await decryptMedia(quotedMsg)
                         const imageBase64 = `data:${quotedMsg.mimetype};base64,${mediaData.toString('base64')}`
                         await aruga.setProfilePic(imageBase64)
-                        aruga.sendTextWithMentions(from, `Makasih @${sender.id.replace('@c.us','')} Foto Profilenya 😘`)
+                        aruga.sendTextWithMentions(from, `Makasih @${sender.id.replace('@c.us','')} Foto Profilenya 😘`, id)
                     } else {
                         aruga.reply(from, `Wrong Format!\n⚠️ Harap Kirim Gambar Dengan ${prefix}setpic`, id)
                     }
@@ -744,7 +744,7 @@ moment.tz.setDefault('Asia/Jakarta').locale('id')
                 try {
                     var jnck = await aruga.getProfilePicFromServer(useriq)
     
-                    aruga.sendFileFromUrl(from, jnck, `awok.jpg` , `nehh ngab`)
+                    aruga.sendFileFromUrl(from, jnck, `awok.jpg` , `nehh ngab`, id)
                 } catch {
                     aruga.reply(from, `Tidak Ada Foto Profile!`, id)
                 }
@@ -753,7 +753,7 @@ moment.tz.setDefault('Asia/Jakarta').locale('id')
             await aruga.sendText(from, menuId.textTnC())
             break
         case prefix+'help':
-            const bots = `Hi minna, this is Exzuka-Bot, to find out the commands menu, type *${prefix}menu* , *${prefix}p*`
+            const bots = `Hi minna, this is Gabut-Bot, to find out the commands menu, type *${prefix}menu* , *${prefix}p*`
             await aruga.reply(from, bots , id)
             break
         case prefix+'p':
@@ -777,11 +777,11 @@ moment.tz.setDefault('Asia/Jakarta').locale('id')
             await aruga.sendFileFromUrl(from, php4,'image.jpg', menuId.admin(prefix), id)
             break
             case prefix+'kodenuklir':
-                await aruga.sendText(from, menuId.kodenuklir())
+                await aruga.sendText(from, menuId.kodenuklir(), id)
                 break
         case prefix+'donate':
         case prefix+'donasi':
-            await aruga.sendText(from, menuId.textDonasi())
+            await aruga.sendText(from, menuId.textDonasi(), id)
             break
           case prefix+'tod':
     aruga.reply(from, `Sebelum bermain berjanjilah akan melaksanakan apapun perintah yang diberikan.\n\nSilahkan Pilih:\n➥ ${prefix}truth\n➥ ${prefix}dare`, id)
@@ -851,7 +851,9 @@ moment.tz.setDefault('Asia/Jakarta').locale('id')
                     const srhdah = body.slice(10)
 					axios.get(`https://api.zeks.xyz/api/glowtext?text=${srhdah}&apikey=apivinz`)
 					.then(async(res) => {
-					aruga.sendFileFromUrl(from, res.data.result, `img.jpg`, '', id)
+					aruga.sendFileFromUrl(from, res.data.result, `srhdah.jpg`, '', id)
+						.catch((err) => {
+				                aruga.reply(from, 'ada yang error!!', id)
 					})
                     break
             case prefix+'logoff':
