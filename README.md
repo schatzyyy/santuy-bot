@@ -13,7 +13,7 @@
 <a href="https://github.com/Rmdhn-20/santuy-bot/watchers"><img title="Watching" src="https://img.shields.io/github/watchers/Rmdhn-20/Gabut-Bot?label=Watchers&color=blue&style=flat-square"></a>
 <img src="https://img.shields.io/node/v/@open-wa/wa-automate.svg?color=blue" />
 <a href="https://www.npmjs.com/package/@open-wa/wa-automate"><img src="https://img.shields.io/npm/v/@open-wa/wa-automate.svg?color=blue" /></a>
-<a href="https://hits.seeyoufarm.com"><img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FRmdhn-20%2FGabut-Bot&count_bg=%23476FFF&title_bg=%23868080&icon=openbadges.svg&icon_color=%23E7E7E7&title=visitors&edge_flat=false"/></a>
+<a href="https://hits.seeyoufarm.com"><img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FRmdhn-20%2Fsantuy-bot&count_bg=%23476FFF&title_bg=%23868080&icon=openbadges.svg&icon_color=%23E7E7E7&title=visitors&edge_flat=false"/></a>
 
 <p align="left">
 <a href="https://github.com/Rmdhn-20/santuy-bot">
