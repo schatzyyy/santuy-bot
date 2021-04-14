@@ -17,7 +17,7 @@
 
 <p align="left">
 <a href="https://github.com/Rmdhn-20/santuy-bot">
- <img align="center" src="https://github-readme-stats.vercel.app/api/pin/?username=Rmdhn-20&repo=Gabut-Bot&theme=dark" />
+ <img align="center" src="https://github-readme-stats.vercel.app/api/pin/?username=Rmdhn-20&repo=santuy-bot&theme=dark" />
   </p>
  <p align="center">
   <a href="https://github.com/Rmdhn-20/santuy-bot#Requirements">Requirements</a> •
