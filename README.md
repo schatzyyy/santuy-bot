@@ -8,26 +8,26 @@
 <a href="https://github.com/Rmdhn-20"><img title="Author" src="https://img.shields.io/badge/AUTHOR-EkuziKA-blue.svg?style=for-the-badge&logo=github"></a>
 <p align="center">
   <a href="https://github.com/Rmdhn-20?tab=followers"><img title="Followers" src="https://img.shields.io/github/followers/Rmdhn-20?color=blue&style=flat-square"></a>
-<a href="https://github.com/Rmdhn-20/Gabut-Bot/stargazers/"><img title="Stars" src="https://img.shields.io/github/stars/Rmdhn-20/Gabut-Bot?color=blue&style=flat-square"></a>
-<a href="https://github.com/Rmdhn-20/Gabut-Bot/network/members"><img title="Forks" src="https://img.shields.io/github/forks/Rmdhn-20/Gabut-Bot?color=blue&style=flat-square"></a>
-<a href="https://github.com/Rmdhn-20/Gabut-Bot/watchers"><img title="Watching" src="https://img.shields.io/github/watchers/Rmdhn-20/Gabut-Bot?label=Watchers&color=blue&style=flat-square"></a>
+<a href="https://github.com/Rmdhn-20/santuy-bot/stargazers/"><img title="Stars" src="https://img.shields.io/github/stars/Rmdhn-20/Gabut-Bot?color=blue&style=flat-square"></a>
+<a href="https://github.com/Rmdhn-20/santuy-bot/network/members"><img title="Forks" src="https://img.shields.io/github/forks/Rmdhn-20/Gabut-Bot?color=blue&style=flat-square"></a>
+<a href="https://github.com/Rmdhn-20/santuy-bot/watchers"><img title="Watching" src="https://img.shields.io/github/watchers/Rmdhn-20/Gabut-Bot?label=Watchers&color=blue&style=flat-square"></a>
 <img src="https://img.shields.io/node/v/@open-wa/wa-automate.svg?color=blue" />
 <a href="https://www.npmjs.com/package/@open-wa/wa-automate"><img src="https://img.shields.io/npm/v/@open-wa/wa-automate.svg?color=blue" /></a>
 <a href="https://hits.seeyoufarm.com"><img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FRmdhn-20%2FGabut-Bot&count_bg=%23476FFF&title_bg=%23868080&icon=openbadges.svg&icon_color=%23E7E7E7&title=visitors&edge_flat=false"/></a>
 
 <p align="left">
-<a href="https://github.com/Rmdhn-20/Gabut-Bot">
+<a href="https://github.com/Rmdhn-20/santuy-bot">
  <img align="center" src="https://github-readme-stats.vercel.app/api/pin/?username=Rmdhn-20&repo=Gabut-Bot&theme=dark" />
   </p>
  <p align="center">
-  <a href="https://github.com/Rmdhn-20/Gabut-Bot#Requirements">Requirements</a> •
-  <a href="https://github.com/Rmdhn-20/Gabut-Bot#install">Installation</a> •
-  <a href="https://github.com/Rmdhn-20/Gabut-Bot#Usage">Usage</a> •
-  <a href="https://github.com/Rmdhn-20/Gabut-Bot#Information">Information</a> •
-  <a href="https://github.com/Rmdhn-20/Gabut-Bot#features">Features</a> •
-  <a href="https://github.com/Rmdhn-20/Gabut-Bot#To-Do">To-Do</a> •
-  <a href="https://github.com/Rmdhn-20/Gabut-Bot#Troubleshooting">Troubleshooting</a>•
-  <a href="https://github.com/Rmdhn-20/Gabut-Bot#thanks-to">Thanks to</a>
+  <a href="https://github.com/Rmdhn-20/santuy-bot#Requirements">Requirements</a> •
+  <a href="https://github.com/Rmdhn-20/santuy-bot#install">Installation</a> •
+  <a href="https://github.com/Rmdhn-20/santuy-bot#Usage">Usage</a> •
+  <a href="https://github.com/Rmdhn-20/santuy-bot#Information">Information</a> •
+  <a href="https://github.com/Rmdhn-20/santuy-bot#features">Features</a> •
+  <a href="https://github.com/Rmdhn-20/santuy-bot#To-Do">To-Do</a> •
+  <a href="https://github.com/Rmdhn-20/santuy-bot#Troubleshooting">Troubleshooting</a>•
+  <a href="https://github.com/Rmdhn-20/santuy-bot#thanks-to">Thanks to</a>
 </p>
 </div>
 
@@ -64,7 +64,7 @@ This project require NodeJS v12.
 Clone this project
 
 ```bash
-> git clone https://github.com/Rmdhn-20/Gabut-Bot.git
+> git clone https://github.com/Rmdhn-20/santuy-bot.git
 > cd wa-bot
 ```
 
@@ -85,12 +85,12 @@ after running it you need to scan the qr
 
 ### Information
 - Change ownerNumber on HandleMsg.js
-- Change groupLimit on [this section](https://github.com/Rmdhn-20/Gabut-Bot/blob/master/settings/setting.json#L3)
-- Change memberLimit on [this section](https://github.com/Rmdhn-20/Gabut-Bot/blob/master/settings/setting.json#L4)
+- Change groupLimit on [this section](https://github.com/Rmdhn-20/santuy-bot/blob/master/settings/setting.json#L3)
+- Change memberLimit on [this section](https://github.com/Rmdhn-20/santuy-bot/blob/master/settings/setting.json#L4)
 - Change prefix on HandleMsg.js
-- Change menu on [this section](https://github.com/Rmdhn-20/Gabut-Bot/blob/main/lib/menu.js#L32)
-- Add kata kasar on [this section](https://github.com/Rmdhn-20/Gabut-Bot/blob/master/lib/kataKotor.js#L8)
-- Change all apiKey on [this section](https://github.com/Rmdhn-20/Gabut-Bot/blob/master/settings/api.json)
+- Change menu on [this section](https://github.com/Rmdhn-20/santuy-bot/blob/main/lib/menu.js#L32)
+- Add kata kasar on [this section](https://github.com/Rmdhn-20/santuy-bot/blob/master/lib/kataKotor.js#L8)
+- Change all apiKey on [this section](https://github.com/Rmdhn-20/santuy-bot/blob/master/settings/api.json)
 - Get Api NoBackground on [this website](https://www.remove.bg/)
 - Get Api ScreenShot on [this website](https://apiflash.com/)
 - `vhtear`: VHTear API token. You can get it [here](https://api.vhtear.com/) by purchasing his API key.
@@ -131,7 +131,7 @@ after running it you need to scan the qr
 | Instagram |✅|
 | Twitter|✅|
 | Tiktok Video|✅|
-| SoundCloud|✅|
+| Instastory |✅|
 
 | Fun Menu! |Yes|
 | ------------- | ------------- |
