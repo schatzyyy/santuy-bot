@@ -7,12 +7,10 @@ const HandleMsg = require('./HandleMsg')
 
 
 const start = async (aruga = new aruga()) => {
-		console.log(color('--------------------------', 'white'))
-        console.log(color('Gabut-Bot'))
-        console.log(color('--------------------------', 'white'))
+		console.log(color('[VER]', 'aqua'), color('1.0', 'magenta'))
         console.log(color('[CREATOR]', 'aqua'), color('EkuziKA', 'magenta'))
-        console.log(color('[BOT]', 'aqua'), color('Gabut - BOT is now Online!', 'magenta'))
-		console.log(color('[VER]', 'aqua'), color('2.0', 'magenta'))
+        console.log(color('[BOT]', 'aqua'), color('Santuy - BOT is now Online!', 'magenta'))
+		
     
     aruga.onStateChanged((state) => {
         console.log(color('-> [STATE]', 'red'), state)
@@ -21,7 +19,7 @@ const start = async (aruga = new aruga()) => {
     })
 
     aruga.onAddedToGroup(async (chat) => {
-        await aruga.sendText(chat.groupMetadata.id, 'Terima kasih sudah memasukkan Gabut-Bot kedalam grup kalian')
+        await aruga.sendText(chat.groupMetadata.id, 'Terima kasih sudah memasukkan Santuy-Bot kedalam grup kalian')
         await aruga.leaveGroup(chat.groupMetada.id)
     })
 	

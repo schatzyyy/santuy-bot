@@ -1,5 +1,5 @@
 {
-  "name": "gabut-bot",
+  "name": "santuy-bot",
   "version": "1.0.0",
   "description": "whatsapp-bot with NodeJS",
   "main": "index.js",
@@ -9,18 +9,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Rmdhn-20/Gabut-Bot.git"
+    "url": "git+https://github.com/Rmdhn-20/santuy-bot.git"
   },
   "keywords": [
-    "Whatsapp-Bot",
-    "Wa-bot"
+    "Whatsapp-Bot"
   ],
   "author": "EkuziKA",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Rmdhn-20/Gabut-Bot/issues"
+    "url": "https://github.com/Rmdhn-20/santuy-bot/issues"
   },
-  "homepage": "https://github.com/Rmdhn-20/Gabut-Bot#readme",
+  "homepage": "https://github.com/Rmdhn-20/santuy-bot#readme",
   "dependencies": {
     "@open-wa/wa-automate": "^3.10.0",
     "app-root-path": "^3.0.0",
@@ -50,8 +49,5 @@
     "sastrawijs": "^1.0.3",
     "sharp": "^0.27.2",
     "translatte": "^3.0.0"
-  },
-  "directories": {
-    "lib": "lib"
   }
 }

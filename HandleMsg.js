@@ -100,6 +100,7 @@ let {
     iTechApi,
     apiKey,
 	banChats,
+  apilindow,
 	mtc: mtcState
 } = setting
 
@@ -201,8 +202,8 @@ moment.tz.setDefault('Asia/Jakarta').locale('id')
 		const reason = q ? q : 'Gada'
 		const gifcrop = { crop: true, square: 240, fps: 30, loop: 0, startTime: `00:00:00.0`, endTime: `00:00:10.0` }
 		const gifxyz = { crop: false, square: 240, fps: 30, loop: 0, startTime: `00:00:00.0`, endTime: `00:00:10.0` }
-		const StickerMetadatacrop = { author : 'Owner? @serbanewbie20', pack: 'Gabut-Bot', keepScale: false }
-		const StickerMetadata = { author : 'Owner? @serbanewbie20', pack: 'Gabut-Bot', keepScale: true }
+		const StickerMetadatacrop = { author : 'Owner? @serbanewbie20', pack: 'Santuy-Bot', keepScale: false }
+		const StickerMetadata = { author : 'Owner? @serbanewbie20', pack: 'Santuy-Bot', keepScale: true }
 
         // [IDENTIFY]
         const ownerNumber = '6289501158082@c.us'
@@ -217,7 +218,9 @@ moment.tz.setDefault('Asia/Jakarta').locale('id')
         const isImage = type === 'image'
         const isPrem = prem.includes(pengirim)
 		const authorr = '@serbanewbie20'
-		const pack = 'Gabut-Bot'
+		const pack = 'Sticker-Bot'
+		const authors = '@serbanewbie20'
+		const packnames = 'Sticker-Bot'
 		
         
         //
@@ -577,7 +580,7 @@ moment.tz.setDefault('Asia/Jakarta').locale('id')
         if (isAutoStikerOn && isMedia && isImage) {
             const mediaData = await decryptMedia(message, uaOverride)
             const imageBase64 = `data:${mimetype};base64,${mediaData.toString('base64')}`
-            await aruga.sendImageAsSticker(from, imageBase64, {author: `@serbanewbie20`, pack: `Gabut-Bot`, keepScale: true})
+            await aruga.sendImageAsSticker(from, imageBase64, { author: `${authors}`, pack: `${packnames}`, keepScale: true }, id)
                 .then(async () => {
                     console.log(`Sticker processed for ${processTime(t, moment())} seconds`)
                 })
@@ -608,31 +611,31 @@ moment.tz.setDefault('Asia/Jakarta').locale('id')
 	const apakah = [
             'Ya',
             'Tidak',
-	    'Mungkin',
+			'Mungkin',
             'Coba Ulangi'
             ]
 
         const bisakah = [
             'Bisa',
             'Tidak Bisa',
-	    'Mungkin',
+			'Mungkin',
             'Coba Ulangi'
             ]
 
         const kapan = [
-	    '1 Menit lagi',
-	    '1 Jam lagi',
-	    '1 Hari lagi',
-	    '10 Hari lagi',
+			'1 Menit lagi',
+			'1 Jam lagi',
+			'1 Hari lagi',
+			'10 Hari lagi',
             '1 Minggu lagi',
             '1 Bulan lagi',
-	    '10 Bulan lagi',
+			'10 Bulan lagi',
             '1 Tahun lagi',
-	    '10 Tahun lagi',
+			'10 Tahun lagi',
             '100 tahun lagi',
             'gatau',
             'Tahun depan',
-	    'Sekarang',
+			'Sekarang',
             ]
 
         const rate = [
@@ -731,7 +734,7 @@ moment.tz.setDefault('Asia/Jakarta').locale('id')
                         const mediaData = await decryptMedia(quotedMsg)
                         const imageBase64 = `data:${quotedMsg.mimetype};base64,${mediaData.toString('base64')}`
                         await aruga.setProfilePic(imageBase64)
-                        aruga.sendTextWithMentions(from, `Makasih @${sender.id.replace('@c.us','')} Foto Profilenya 😘`, id)
+                        aruga.sendTextWithMentions(from, `Makasih @${sender.id.replace('@c.us','')} Foto Profilenya 😘`)
                     } else {
                         aruga.reply(from, `Wrong Format!\n⚠️ Harap Kirim Gambar Dengan ${prefix}setpic`, id)
                     }
@@ -744,7 +747,7 @@ moment.tz.setDefault('Asia/Jakarta').locale('id')
                 try {
                     var jnck = await aruga.getProfilePicFromServer(useriq)
     
-                    aruga.sendFileFromUrl(from, jnck, `awok.jpg` , `nehh ngab`, id)
+                    aruga.sendFileFromUrl(from, jnck, `awok.jpg` , `nehh ngab`)
                 } catch {
                     aruga.reply(from, `Tidak Ada Foto Profile!`, id)
                 }
@@ -753,7 +756,7 @@ moment.tz.setDefault('Asia/Jakarta').locale('id')
             await aruga.sendText(from, menuId.textTnC())
             break
         case prefix+'help':
-            const bots = `Hi minna, this is Gabut-Bot, to find out the commands menu, type *${prefix}menu* , *${prefix}p*`
+            const bots = `Hi minna, this is Santuy-Bot, to find out the commands menu, type *${prefix}menu* , *${prefix}p*`
             await aruga.reply(from, bots , id)
             break
         case prefix+'p':
@@ -777,11 +780,11 @@ moment.tz.setDefault('Asia/Jakarta').locale('id')
             await aruga.sendFileFromUrl(from, php4,'image.jpg', menuId.admin(prefix), id)
             break
             case prefix+'kodenuklir':
-                await aruga.sendText(from, menuId.kodenuklir(), id)
+                await aruga.sendText(from, menuId.kodenuklir())
                 break
         case prefix+'donate':
         case prefix+'donasi':
-            await aruga.sendText(from, menuId.textDonasi(), id)
+            await aruga.sendText(from, menuId.textDonasi())
             break
           case prefix+'tod':
     aruga.reply(from, `Sebelum bermain berjanjilah akan melaksanakan apapun perintah yang diberikan.\n\nSilahkan Pilih:\n➥ ${prefix}truth\n➥ ${prefix}dare`, id)
@@ -846,15 +849,10 @@ moment.tz.setDefault('Asia/Jakarta').locale('id')
                 aruga.sendFileFromUrl(from, `https://api.zeks.xyz/api/logobp?text=${bpk}&apikey=apivinz`, `${bpk}.jpg`, `nehh ngab`, id)
                 break
                 case prefix+'glowtext':
-                    if (args.length == 0) return aruga.reply(from, `kirim perintah ${prefix}glowtext [namamu]`, id)
+                    if (args.length == 0) return aruga.reply(from, `kirim perintah ${prefix}glowtext [nama]`, id)
                     aruga.reply(from, mess.wait, id)
                     const srhdah = body.slice(10)
-					axios.get(`https://api.zeks.xyz/api/glowtext?text=${srhdah}&apikey=apivinz`)
-					.then(async(res) => {
-					aruga.sendFileFromUrl(from, res.data.result, `srhdah.jpg`, '', id)
-						.catch((err) => {
-				                aruga.reply(from, 'ada yang error!!', id)
-					})
+                    aruga.sendFileFromUrl(from, `https://api.zeks.xyz/api/tlight?text=${srhdah}&apikey=apivinz`, `img.jpg`, '', id)
                     break
             case prefix+'logoff':
                 if (args.length == 0) return aruga.reply(from, `kirim perintah ${prefix}logoff [nama]`, id)
@@ -863,7 +861,7 @@ moment.tz.setDefault('Asia/Jakarta').locale('id')
                 aruga.sendFileFromUrl(from, `https://api.zeks.xyz/api/epep?text=${jadiin}&apikey=apivinz`, `${jadiin}.jpg`, 'nehh ngab...', id)
                 break
         case prefix+'pornhub':
-            if (args.length === 1) return aruga.reply(from, `Kirim perintah *${prefix}pornhub [ |Teks1|Teks2 ]*,\n\n contoh : *${prefix}pornhub |Dimas|HUB*`, id)
+            if (args.length === 1) return aruga.reply(from, `Kirim perintah *${prefix}pornhub [ |Teks1| Teks2 ]*,\n\n contoh : *${prefix}pornhub |Dimas| HUB*`, id)
             argz = body.trim().split('|')
             if (argz.length >= 2) {
                 aruga.reply(from, `sabar brok eug proses dolo....`, id)
@@ -871,9 +869,7 @@ moment.tz.setDefault('Asia/Jakarta').locale('id')
                 const lpornhub2 = argz[2]   
                 if (lpornhub > 10) return aruga.reply(from, '*Teks1 Terlalu Panjang!*\n_Maksimal 10 huruf!_', id)
                 if (lpornhub2 > 10) return aruga.reply(from, '*Teks2 Terlalu Panjang!*\n_Maksimal 10 huruf!_', id)
-                aruga.sendFileFromUrl(from, `https://api.zeks.xyz/api/phlogo?text1=${lpornhub}&text2=${lpornhub2}&apikey=apivinz`, 'neh cuyy', id)
-            } else {
-                await aruga.reply(from, `Wrong Format!\n[❗] Kirim perintah *${prefix}pornhub [ |Teks1|Teks2 ]*,\n\n contoh : *${prefix}logopornhub |Dimas|HUB*`, id)
+                aruga.sendFileFromUrl(from, `https://api.zeks.xyz/api/phlogo?text1=${lpornhub}&text2=${lpornhub2}&apikey=apivinz`, 'img.jpg', '', id)
             }
             break
         case prefix+'slightning':
@@ -911,12 +907,12 @@ moment.tz.setDefault('Asia/Jakarta').locale('id')
                 await aruga.reply(from, `Wrong Format!\n⚠️ Harap Kirim Gambar Dengan ${prefix}stickerfire`, id)
             }
             break
-        case prefix+'thunder':
-            if (args.length === 1) return aruga.reply(from, `Kirim perintah *${prefix}thunder [ Teks ]*, contoh *${prefix}thunder Tobz*`, id)
+        case prefix+'thundertext':
+            if (args.length === 0) return aruga.reply(from, `Kirim perintah *${prefix}thundertext [ Teks ]*, contoh *${prefix}thundertext Tobz*`, id)
             aruga.reply(from, mess.wait, id)
-            const thndr = body.slice(9)
+            const thndr = body.slice(13)
             if (thndr.length > 10) return aruga.reply(from, '*Teks Terlalu Panjang!*\n_Maksimal 10 huruf!_', id)
-            await aruga.sendFileFromUrl(from, `https://api.vhtear.com/thundertext?text=${thndr}&apikey=${vhtearkey}`, 'thndr.jpg', '', id)
+            await aruga.sendFileFromUrl(from, `https://api.zeks.xyz/api/thundertext?text=${thndr}&apikey=apivinz`, 'thndr.jpg', '', id)
             break
         case prefix+'tebakgambar':
             aruga.reply(from, mess.wait, id)
@@ -983,6 +979,8 @@ moment.tz.setDefault('Asia/Jakarta').locale('id')
                 });
                 break
                 case prefix+'lolivid':
+				if (args.length == 0) return aruga.reply(from, `Selama Bulan Suci Ramadhan 1442 H fitur ini ditutup:)`, id)
+				/*
                 aruga.reply(from, mess.wait, id);
                 fetch('https://raw.githubusercontent.com/AlvioAdjiJanuar/random/main/loli.txt')
                 .then(res => res.text())
@@ -995,15 +993,17 @@ moment.tz.setDefault('Asia/Jakarta').locale('id')
                             .catch(() => {
                                 aruga.reply(from, 'Ada yang Error!', id)
                             })
-                break
+                break*/
 			case prefix+'loli':
+				if (args.length == 0) return aruga.reply(from, `Selama Bulan Suci Ramadhan 1442 H fitur ini ditutup:)`, id)
+				/*
                 aruga.reply(from, mess.wait, id);
 				aruga.sendFileFromUrl(from, `https://lindow-api.herokuapp.com/api/loli?apikey=megacantik`, 'loli.jpg', '', id)
 				.catch(err => {
 					console.log(err)
 					aruga.reply(from, 'error', id)
 				})
-                break
+                break*/
             case prefix+'autosticker':
 	        case prefix+'autostiker':
             case prefix+'autostik':
@@ -1021,6 +1021,8 @@ moment.tz.setDefault('Asia/Jakarta').locale('id')
                 }
             break
                 case prefix+'neko':
+                if (args.length == 0) return aruga.reply(from, `Selama Bulan Suci Ramadhan 1442 H fitur ini ditutup:)`, id)
+        /*
                 try {
                     aruga.reply(from, mess.wait, id)
                     axios.get('https://akaneko-api.herokuapp.com/api/neko').then(res => {
@@ -1031,8 +1033,10 @@ moment.tz.setDefault('Asia/Jakarta').locale('id')
                     console.log(err);
                     throw(err);
                 };
-                break
+                break*/
                 case prefix+'boobs':
+                if (args.length == 0) return aruga.reply(from, `Selama Bulan Suci Ramadhan 1442 H fitur ini ditutup:)`, id)
+        /*
                 if (!isPrem) return aruga.reply(from, 'Command Premium\nChat owner buat mendaftar', id)
                 aruga.reply(from, mess.wait, id);
                 axios.get('https://nekos.life/api/v2/img/boobs').then(res => {
@@ -1040,14 +1044,17 @@ moment.tz.setDefault('Asia/Jakarta').locale('id')
 			aruga.sendFileFromUrl(from, res.data.url, '', '', id)
                 });
                 break
-                case prefix+'gifhentai':
-                if (!isPrem) return aruga.reply(from, 'Command Premium\nChat owner buat mendaftar', id)
+              */  case prefix+'gifhentai':
+             if (args.length == 0) return aruga.reply(from, `Selama Bulan Suci Ramadhan 1442 H fitur ini ditutup:)`, id)
+        /*   if (!isPrem) return aruga.reply(from, 'Command Premium\nChat owner buat mendaftar', id)
                 aruga.reply(from, mess.wait, id);
                 axios.get('https://nekos.life/api/v2/img/Random_hentai_gif').then(res => {
                 	aruga.sendFileFromUrl(from, res.data.result, '.gif');
                 });
                 break
-                case prefix+'bjanime':
+          */      case prefix+'bjanime':
+          if (args.length == 0) return aruga.reply(from, `Selama Bulan Suci Ramadhan 1442 H fitur ini ditutup:)`, id)
+        /*
                 if (!isPrem) return aruga.reply(from, 'Command Premium\nChat owner buat mendaftar', id)
                 aruga.reply(from, mess.wait, id)
                 const sblow = await axios.get('https://tobz-api.herokuapp.com/api/nsfwblowjob?&apikey=BotWeA')
@@ -1055,81 +1062,97 @@ moment.tz.setDefault('Asia/Jakarta').locale('id')
 		const giftub = rblow.result
                 aruga.sendStickerfromUrl(from, giftub, `RandoBlow.gif`, 'Random Blowjob!', id)
                     break
-                case prefix+'pussy':
-                if (!isPrem) return aruga.reply(from, 'Command Premium\nChat owner buat mendaftar', id)
+          */      case prefix+'pussy':
+            if (args.length == 0) return aruga.reply(from, `Selama Bulan Suci Ramadhan 1442 H fitur ini ditutup:)`, id)
+        /*    if (!isPrem) return aruga.reply(from, 'Command Premium\nChat owner buat mendaftar', id)
                 aruga.reply(from, mess.wait, id);
                 axios.get('https://nekos.life/api/v2/img/pussy').then(res => {
                 	aruga.sendFileFromUrl(from, res.data.url, '', '', id)
 			aruga.sendStickerfromUrl(from, res.data.url)
                 });
                 break
-               case prefix+'rhentai':
-                if (!isPrem) return aruga.reply(from, 'Command Premium\nChat owner buat mendaftar', id)
+           */    case prefix+'rhentai':
+             if (args.length == 0) return aruga.reply(from, `Selama Bulan Suci Ramadhan 1442 H fitur ini ditutup:)`, id)
+        /*   if (!isPrem) return aruga.reply(from, 'Command Premium\nChat owner buat mendaftar', id)
                aruga.reply(from, mess.wait, id);
                axios.get('https://nekos.life/api/v2/img/Random_hentai_gif').then(res => {
                	aruga.sendFileFromUrl(from, res.data.url, '', '', id)
 		aruga.sendStickerfromUrl(from, res.data.url)
                });
                break
-               case prefix+'kissgif':
-                if (!isPrem) return aruga.reply(from, 'Command Premium\nChat owner buat mendaftar', id)
+          */     case prefix+'kissgif':
+            if (args.length == 0) return aruga.reply(from, `Selama Bulan Suci Ramadhan 1442 H fitur ini ditutup:)`, id)
+        /*    if (!isPrem) return aruga.reply(from, 'Command Premium\nChat owner buat mendaftar', id)
                aruga.reply(from, mess.wait, id);
                axios.get('https://nekos.life/api/v2/img/kiss').then(res => {
 		const mp4 = res.data.url
                	aruga.sendStickerfromUrl(from, mp4, `kiss.gif`, '', id)
                });
-               break
+          */     break
 		case prefix+'sologif':
+    if (args.length == 0) return aruga.reply(from, `Selama Bulan Suci Ramadhan 1442 H fitur ini ditutup:)`, id)
+        /*
 		if (!isPrem) return aruga.reply(from, 'Command premium\nChat owner buat mendaftar', id)
 		aruga.reply(from, mess.wait, id)
 		axios.get('https://nekos.life/api/v2/img/solog').then(res => {
 		aruga.sendStickerfromUrl(from, res.data.url)
 	})
-		break
+		break*/
 		case prefix+'anal':
+    if (args.length == 0) return aruga.reply(from, `Selama Bulan Suci Ramadhan 1442 H fitur ini ditutup:)`, id)
+        /*
 		if (!isPrem) return aruga.reply(from, 'Command Premium\nChat owner buat mendaftar', id)
 		aruga.reply(from, mess.wait, id)
 		axios.get('https://nekos.life/api/v2/img/anal').then(res => {
 		aruga.sendStickerfromUrl(from, res.data.url, id)
 		})
-		break
+		break*/
 		case prefix+'feetgif':
-		if (!isPrem) return aruga.reply(from, 'Command Premium\nChat Owner Bot untuk mendaftar', id)
+if (args.length == 0) return aruga.reply(from, `Selama Bulan Suci Ramadhan 1442 H fitur ini ditutup:)`, id)
+        /*		if (!isPrem) return aruga.reply(from, 'Command Premium\nChat Owner Bot untuk mendaftar', id)
 		aruga.reply(from, mess.wait, id)
 		axios.get('https://nekos.life/api/v2/img/feetg').then(res => {
 		aruga.sendStickerfromUrl(from, res.data.url)
 		})
-		break
+		break*/
 
 		case prefix+'ttgif':
-		if (!isPrem) return aruga.reply(from, 'Command Premium\nChat owner buat mendaftar', id)
+if (args.length == 0) return aruga.reply(from, `Selama Bulan Suci Ramadhan 1442 H fitur ini ditutup:)`, id)
+        /*		if (!isPrem) return aruga.reply(from, 'Command Premium\nChat owner buat mendaftar', id)
 		aruga.reply(from, mess.wait,id)
 		axios.get('https://nekos.life/api/v2/img/boobs').then(res => {
 		aruga.sendStickerfromUrl(from, res.data.url)
 		})
-		break
+		break*/
                 case prefix+'cumgif':
-                if (!isPrem) return aruga.reply(from, 'Command Premium\nChat owner buat mendaftar', id)
+if (args.length == 0) return aruga.reply(from, `Selama Bulan Suci Ramadhan 1442 H fitur ini ditutup:)`, id)
+        /*                if (!isPrem) return aruga.reply(from, 'Command Premium\nChat owner buat mendaftar', id)
                 aruga.reply(from, mess.wait, id);
                 axios.get('https://nekos.life/api/v2/img/cum').then(res => {
                 	aruga.sendStickerfromUrl(from, res.data.url)
                 });
                 break
-                case prefix+'bjgif':
-                if (!isPrem) return aruga.reply(from, 'Command Premium\nChat owner buat mendaftar', id)
+            */    case prefix+'bjgif':
+          if (args.length == 0) return aruga.reply(from, `Selama Bulan Suci Ramadhan 1442 H fitur ini ditutup:)`, id)
+        /*      if (!isPrem) return aruga.reply(from, 'Command Premium\nChat owner buat mendaftar', id)
                 aruga.reply(from, mess.wait, id);
                 axios.get('https://nekos.life/api/v2/img/bj').then(res => {
                 	aruga.sendStickerfromUrl(from, res.data.url);
                 });
                 break
-                case prefix+'nsfwgif':
+          */      case prefix+'nsfwgif':
+            if (args.length == 0) return aruga.reply(from, `Selama Bulan Suci Ramadhan 1442 H fitur ini ditutup:)`, id)
+        /*    if (args.length == 0) return aruga.reply(from, `Selama Bulan Suci Ramadhan 1442 H fitur ini ditutup:)`, id)
+        
                 if (!isPrem) return aruga.reply(from, 'Command Premium\nChat owner buat mendaftar', id)
                 aruga.reply(from, mess.wait, id);
                 axios.get('https://nekos.life/api/v2/img/nsfw_neko_gif').then(res => {
                 	aruga.sendStickerfromUrl(from, res.data.url);
                 });
                 break
-                case prefix+'waifu':
+            */    case prefix+'waifu':
+                if (args.length == 0) return aruga.reply(from, `Selama Bulan Suci Ramadhan 1442 H fitur ini ditutup:)`, id)
+        /*
                 if (!isGroupMsg) return aruga.reply(from, 'Fitur ini hanya bisa digunakan didalam Grup!', id)
                 if (!isPrem) return aruga.reply(from, 'Command Premium\nChat owner buat mendaftar', id)
                 aruga.reply(from, mess.wait, id);
@@ -1137,7 +1160,7 @@ moment.tz.setDefault('Asia/Jakarta').locale('id')
                     aruga.sendFileFromUrl(from, res.data.url, 'Waifu UwU');
                 });
                 break
-                case prefix+'slap':
+              */  case prefix+'slap':
                 if (!isPrem) return aruga.reply(from, 'Command Premium\nChat owner buat mendaftar', id)
                 aruga.reply(from, mess.wait, id);
                 axios.get('https://nekos.life/api/v2/img/slap').then(res => {
@@ -1145,33 +1168,38 @@ moment.tz.setDefault('Asia/Jakarta').locale('id')
                 })
                 break
                 case prefix+'rhug':
+				if (args.length == 0) return aruga.reply(from, `Selama Bulan Suci Ramadhan 1442 H fitur ini ditutup:)`, id)
+				/*
                 if (!isPrem) return aruga.reply(from, 'Command Premium\nChat owner buat mendaftar', id)
                 aruga.reply(from, mess.wait, id);
                 axios.get('https://nekos.life/api/v2/img/hug').then(res => {
                 	aruga.sendFileFromUrl(from, res.data.url);
                 });
                 break
-                case prefix+'animeavatar':
-                    if (!isGroupMsg) return aruga.reply(from, 'Fitur ini hanya bisa digunakan didalam Grup!' , id)
+          */      case prefix+'animeavatar':
+            if (args.length == 0) return aruga.reply(from, `Selama Bulan Suci Ramadhan 1442 H fitur ini ditutup:)`, id)
+        /*        if (!isGroupMsg) return aruga.reply(from, 'Fitur ini hanya bisa digunakan didalam Grup!' , id)
                     aruga.reply(from, mess.wait, id);
                     axios.get('https://nekos.life/api/v2/img/avatar').then(res => {
                         aruga.sendFileFromUrl(from, res.data.url, 'Avatar UwU');
                     });
                     break
-            case prefix+'nekonsfw':
-                if (!isPrem) return aruga.reply(from, 'Command Premium\nChat owner buat mendaftar', id)
+          */  case prefix+'nekonsfw':
+            if (args.length == 0) return aruga.reply(from, `Selama Bulan Suci Ramadhan 1442 H fitur ini ditutup:)`, id)
+        /*    if (!isPrem) return aruga.reply(from, 'Command Premium\nChat owner buat mendaftar', id)
                     aruga.sendText(from, mess.wait);
                     axios.get('https://nekos.life/api/v2/img/nsfw_neko_gif').then(res => {
                         aruga.sendStickerfromUrl(from, res.data.url, 'Sange.gif', '', id);
             })
                 break
-		case prefix+'lesbian':
-		if (!isPrem) return aruga.reply(from, 'Command Premium\nChat owner buat mendaftar', id)
+	*/	case prefix+'lesbian':
+		if (args.length == 0) return aruga.reply(from, `Selama Bulan Suci Ramadhan 1442 H fitur ini ditutup:)`, id)
+        /*if (!isPrem) return aruga.reply(from, 'Command Premium\nChat owner buat mendaftar', id)
 		aruga.reply(from, mess.wait, id)
 		axios.get('https://nekos.life/api/v2/img/les').then(res => {
 		aruga.sendStickerfromUrl(from, res.data.url)
 	})
-		break
+		break*/
             case prefix+'wallpaper2':
                 aruga.reply(from, mess.wait, id);
                 axios.get('https://akaneko-api.herokuapp.com/api/wallpapers').then(res => {
@@ -1179,12 +1207,13 @@ moment.tz.setDefault('Asia/Jakarta').locale('id')
                 });
                 break
             case prefix+'baka':
-                aruga.reply(from, mess.wait, id);
+          if (args.length == 0) return aruga.reply(from, `Selama Bulan Suci Ramadhan 1442 H fitur ini ditutup:)`, id)
+        /*      aruga.reply(from, mess.wait, id);
                 axios.get('https://nekos.life/api/v2/img/baka').then(res => {
                     aruga.sendStickerfromUrl(from, res.data.url)
                 })
                 break
-                case prefix+'aesthetic':
+          */      case prefix+'aesthetic':
                     aruga.reply(from, mess.wait, id)
 					axios.get(`https://api.zeks.xyz/api/estetikpic?apikey=apivinz`)
 					.then(async(res) => {
@@ -1324,7 +1353,8 @@ moment.tz.setDefault('Asia/Jakarta').locale('id')
                 } else aruga.reply(from, 'Error', id)
                 break
 				case prefix+'pictcogan':
-				const cogan = fs.readFileSync('./lib/helper/cogan.json')
+		if (args.length == 0) return aruga.reply(from, `Selama Bulan Suci Ramadhan 1442 H fitur ini ditutup:)`, id)
+      /* const cogan = fs.readFileSync('./lib/helper/cogan.json')
 				const coganin = JSON.parse(cogan)
 				const rondom = Math.floor(Math.random() * coganin.length)
 				const ahha = coganin[rondom]
@@ -1337,24 +1367,26 @@ moment.tz.setDefault('Asia/Jakarta').locale('id')
 				const ahhayu = cecanin[random2]
 				aruga.sendFile(from, ahhayu, 'img.jpg', 'nehh cecan', id)
 				break
-                case prefix+'ameliandani':
-                    if (!isGroupMsg) return aruga.reply(from, 'Fitur ini hanya bisa digunakan didalam Grup!', id)
+         */       case prefix+'ameliandani':
+                 if (args.length == 0) return aruga.reply(from, `Selama Bulan Suci Ramadhan 1442 H fitur ini ditutup:)`, id)
+      /*   if (!isGroupMsg) return aruga.reply(from, 'Fitur ini hanya bisa digunakan didalam Grup!', id)
                     const andani = fs.readFileSync('./lib/amelia.json')
                     const amel = JSON.parse(andani)
                     const randum = Math.floor(Math.random() * amel.length)
                     const uwoyy = amel[randum]
                     aruga.sendImage(from, uwoyy.image, 'Amel.jpg', uwoyy.teks, id)
-                    break
+               */     break
             case prefix+'bokep': // MFARELS
             case prefix+'randombokep': // MFARELS
             case prefix+'bkp': // MFARELS
-                if (!isPrem) return aruga.reply(from, 'Command Premium\nChat owner buat mendaftar', id)
+           if (args.length == 0) return aruga.reply(from, `Selama Bulan Suci Ramadhan 1442 H fitur ini ditutup:)`, id)
+      /*     if (!isPrem) return aruga.reply(from, 'Command Premium\nChat owner buat mendaftar', id)
                 const mskkntl = fs.readFileSync('./lib/18+.json') // MFARELS
                 const kntlnya = JSON.parse(mskkntl) // MFARELS
                 const rindBkp = Math.floor(Math.random() * kntlnya.length) // MFARELS
                 const rindBkep = kntlnya[rindBkp] // MFARELS
                 aruga.sendFileFromUrl(from, rindBkep.image, 'Bokep.jpg', rindBkep.teks, id) // MFARELS
-                break
+           */     break
         case prefix+'join':
             if (args.length == 0) return aruga.reply(from, `Jika kalian ingin mengundang bot kegroup silahkan invite atau dengan\nketik ${prefix}join [link group]`, id)
 		if (!isPrem) return aruga.reply(from, `Chat owner buat joinin`, id)
@@ -1366,7 +1398,7 @@ moment.tz.setDefault('Asia/Jakarta').locale('id')
                 await aruga.joinGroupViaLink(linkgrup)
                       .then(async () => {
                           await aruga.sendText(from, 'Berhasil join grup via link!')
-                          await aruga.sendText(chekgrup.id, `what up y'all , I'm Gabut-Bot. To find out the commands on this Bot type ${prefix}menu`)
+                          await aruga.sendText(chekgrup.id, `what up y'all , I'm Santuy-Bot. To find out the commands on this Bot type ${prefix}menu`)
                       })
             } else {
                 let cgrup = await aruga.getAllGroups()
@@ -1513,7 +1545,7 @@ moment.tz.setDefault('Asia/Jakarta').locale('id')
         }
 		
 	//Sticker Converter
-	case prefix+'take':
+	case prefix+'takestick':
 	aruga.reply(from, `Untuk mengubah watermark sticker, reply sticker dengan caption ${prefix}take package_name | author_name\n\nContoh: ${prefix}takestick PUNYA GUA | videfikri`, id)
                     if (quotedMsg && quotedMsg.type == 'sticker' || quotedMsg && quotedMsg.type == 'image') {
                         if (!q.includes('|')) return await aruga.reply(from, `Untuk mengubah watermark sticker, reply sticker/image dengan caption ${prefix}take package_name | author_name\n\nContoh: ${prefix}takestick PUNYA GUA | videfikri`, id)
@@ -1535,7 +1567,7 @@ moment.tz.setDefault('Asia/Jakarta').locale('id')
 						const imageBase64 = `data:${mimetype};base64,${mediaData.toString('base64')}`
                         await aruga.sendImageAsSticker(from, imageBase64, { author: `${authors}`, pack: `${packnames}` })
 					} else {
-						aruga.reply(from, `Untuk mengubah watermark sticker, reply sticker/image dengan caption ${prefix}take package_name | author_name\n\nContoh: ${prefix}takestick PUNYA GUA | videfikri`, id)
+						aruga.reply(from, `Untuk mengubah watermark sticker, reply sticker/image dengan caption ${prefix}takestick package_name | author_name\n\nContoh: ${prefix}takestick PUNYA GUA | videfikri`, id)
 					}
         break
             case prefix+'sgifwm':
@@ -1786,7 +1818,7 @@ moment.tz.setDefault('Asia/Jakarta').locale('id')
                 const _mimetype = isQuotedImage ? quotedMsg.mimetype : mimetype
                 const mediaData = await decryptMedia(encryptMedia, uaOverride)
                 const imageBase64 = `data:${_mimetype};base64,${mediaData.toString('base64')}`
-                aruga.sendImageAsSticker(from, imageBase64, { removebg: true, author: `Owner? @serbanewbie <- Follow oke? wkwk`, pack: `Exzuka-Bot` })
+                aruga.sendImageAsSticker(from, imageBase64, { removebg: true, author: `Owner? @serbanewbie <- Follow oke? wkwk`, pack: `Santuy-Bot` })
 				aruga.sendText(from, `Sticker Processed for ${processTime(t, moment())} Second\n\nJangan lupa berdonasi yee hehe:v`, id)
 		} else {
 		    aruga.reply(from, `Format pesan salah... Kirim foto dengan caption ${prefix}nobg`, id)
@@ -2058,7 +2090,7 @@ break
                         hehex += '╠➥ '
                         hehex += response.data.data[i].name.transliteration.id.toLowerCase() + '\n'
                             }
-                        hehex += '╚═〘 *A R U G A  B O T* 〙'
+                        hehex += '╚═〘 *S A N T U Y -  B O T* 〙'
                     aruga.reply(from, hehex, id)
                 })
             } catch(err) {
@@ -2239,16 +2271,21 @@ break
                     break;
         //Media 
             case prefix+'ytmp3':
-		if (!isPrem) return aruga.reply(from, 'Command Premium! Jika berminat chat owner buat mendaftar!\n\nKetik ${prefix}owner buat mendapatkan kontak owner!', id)
                 if (args.length == 0) return aruga.reply(from, `Untuk mendownload lagu dari youtube\nketik: ${prefix}ytmp3 [link_yt]`, id)
                 aruga.reply(from, mess.wait, id)
-		axios.get(`https://api-anoncybfakeplayer.herokuapp.com/ytmp3?url=${body.slice(7)}`)
+				axios.get(`http://fahmiapi.herokuapp.com/yt/mp3?url=${args}&apikey=freeTrial2k21`)
                 .then(async(res) => {
-				await aruga.sendFileFromUrl(from, res.data.thumb, '', `「 *YOUTUBE MP3* 」\n\nJudul: ${res.data.title}\nExecute: ${res.data.ext}\n\n*_Waitt, lemme send that fuckin' audio_*`, id)
-				aruga.sendFileFromUrl(from, res.data.result, '', '', id)
-                      		.catch((err) => {
-				aruga.reply(from, `URL ${linkmp3} Sudah pernah didownload sebelumnya, Link akan direset selama 30 menit`,id)
+				await aruga.sendFileFromUrl(from, res.data.result.thumbnail, '', `「 *YOUTUBE MP3* 」\n\n*Title:* ${res.data.result.title}\n*Filesize:* ${res.data.result.filesize}\n*Duration:* ${res.data.result.duration} detik\n*Uploaded:* ${res.data.result.publishDate}\n*Likes:* ${res.data.result.likes}\n*Dislikes:* ${res.data.result.dislikes}\n*Views:* ${res.data.result.views}\n*Channel:* ${res.data.result.channel}\n\n*_Waitt, lemme send that fuckin' audio_*`, id)
+				rugaapi.ymp3(res.data.result.url)
+				.then(async(res) => {
+				const bealink = await axios.get(`http://docs-jojo.herokuapp.com/api/shorturl-at?url=${res.dl_link}`)
+				const linkbea = bealink.data.result
+				if (!isPrem) return aruga.reply(from, `Karena anda bukan user Premium, silahkan download menggunakan link\n\nLink: ${linkbea}`, id)
+				aruga.sendFileFromUrl(from, res.dl_link, '', '', id)
+                .catch(() => {
+				aruga.reply(from, `Error nich`,id)
 			 })
+				})
 			})
 			.catch(err => {
 				aruga.reply(from, 'error', id)
@@ -2284,8 +2321,7 @@ break
                 if (args.length == 0) return aruga.reply(from, `Kirim perintah ${prefix}emojisticker [emoji]\nContoh : ${prefix}emojisticker 😫`, id)
                 const emoji = emojiUnicode(q)
                 await aruga.reply(from, `Wait....`, id)
-                console.log(`Creating code emoji => ${emoji}`)
-                aruga.sendStickerfromUrl(from, `https://api.zeks.xyz/api/emoji-image?apikey=apivinz&emoji=${emoji}`)
+                aruga.sendStickerfromUrl(from, `http://docs-jojo.herokuapp.com/api/emoji2png?emoji=${emoji}&type=android`, id)
                  .catch ((err) => {
                     console.log(err)
                     aruga.reply(from, 'Maaf, emoji yang kamu kirim tidak support untuk dijadikan sticker, cobalah emoji lain', id)
@@ -2321,7 +2357,8 @@ break
                     }
                     break
 					case prefix+'javcosplay':
-					await aruga.reply(from, mess.wait, id)
+if (args.length == 0) return aruga.reply(from, `Selama Bulan Suci Ramadhan 1442 H fitur ini ditutup:)`, id)
+        /*					await aruga.reply(from, mess.wait, id)
 					rugaapi.cosplay()
 					.then(async ({ result }) => {
 						let jav = '-----[ *Jav Cosplay* ]-----'
@@ -2336,7 +2373,9 @@ break
 						aruga.reply(from, 'Error....', id)
 					})
 					break
-					case 'nekopoi':
+				*/	case 'nekopoi':
+          if (args.length == 0) return aruga.reply(from, `Selama Bulan Suci Ramadhan 1442 H fitur ini ditutup:)`, id)
+        /*
 					 rugapoi.getLatest()
 					.then((result) => {
 						rugapoi.getVideo(result.link)
@@ -2361,7 +2400,7 @@ break
 				aruga.reply(from, jelasin, id)
 			})
 			break
-                    case prefix+'anoboy':
+          */          case prefix+'anoboy':
                         await aruga.reply(from, mess.wait, id)
                         rugaapi.anoboy()
                             .then(async ({ result }) => {
@@ -2409,7 +2448,7 @@ break
                                 const linkImg = await uploadImages(mediaData, `${sender.id}_img`)
                                 await aruga.reply(from, linkImg, id)
                             } else {
-                                await aruga.reply(from, 'Format pesan salah...', id)
+                                await aruga.reply(from, `Format pesan salah... Kirim gambar dengan caption ${prefix}imagetourl`, id)
                             }
                         break
                     case prefix+'findsticker':
@@ -2430,20 +2469,24 @@ break
                                 await aruga.reply(from, `Error!\n\n${err}`, id)
                             }
                         break
-            case prefix+'instastory':
             case prefix+'igstory':
-		if (!isPrem) return aruga.reply(from, 'Command Premium!\nChat owner buat mendaftar!', id)
-                if (args.length == 0) return aruga.reply(from, 'Format pesan salah!', id)
-                await aruga.reply(from, mess.wait, id)
-                    rugaapi.its(args)
-                    .then(async ({ result }) => {
-                        for (let i = 0; i < result.story.itemlist.length; i++) {
-                            const { urlDownload } = result.story.itemlist[i]
-                            await aruga.sendFileFromUrl(from, urlDownload, '', '', id)
-                            console.log('Success sending IG Story!')
-                        }
-                    })
-            break
+		case prefix+'instastory':
+		if (args.length == 0) return aruga.reply(from, `Mencari story dari username, Gunakan ${prefix}igstory username|jumlahyangingindidownload\nContoh: ${prefix}igstory ewkharis|2`, id)
+		const xas1 = q.split('|')[0]
+		const xas2 = q.split('|')[1]
+		aruga.reply(from, mess.wait, id)
+		try {
+			const xas3 = await axios.get(`https://api.zeks.xyz/api/igs?apikey=apivinz&username=${xas1}`)
+			const xas4 = xas3.data
+			if (xas2 > 5) return aruga.reply(from, 'Maksimal 5!', id)
+			for (let i = 0; i < xas2; i++) {
+				await aruga.sendFileFromUrl(from, xas4.data[i].url, '', '', id)
+			}
+		} catch (err) {
+			console.log(err)
+			aruga.reply(from, 'Maaf, username salah, silahkan masukkan username yang benar', id)
+		}
+		break
 			case prefix+'pinterest2':
 				if (args.length == 0) return aruga.reply(from, `Kirim perintah ${prefix}pinterest2 link url`, id)
 				const argim = body.slice(12)
@@ -2472,17 +2515,19 @@ break
                     case prefix+'ig':
                         case prefix+'instagram':
                            if (args.length == 0) return aruga.reply(from, `Kirim perintah *${prefix}ig [linkIg]*`, id)
+                            aruga.reply(from, mess.wait, id)
                             const igUrl = body.slice(4)
-			    axios.get(`https://api.zeks.xyz/api/ig?url=${igUrl}&apikey=apivinz`)
-			    .then(async(res) => {
-				await aruga.sendFileFromUrl(from, res.data.result[0].url, '', `*From: ${res.data.owner}*`, id)
-				.catch(err => {
-					aruga.reply(from, 'Error', id)
-				})
-				})
-				.catch(err => {
-					aruga.reply(from, 'Error', id)
-				})
+          axios.get(`https://fzn-gaz.herokuapp.com/api/igdl?url=${igUrl}`)
+          .then(async(res) => {
+            console.log(`ig download for ${processTime(t, moment())} seconds`)
+        await aruga.sendFileFromUrl(from, res.data.result.url, '', `*from: ${res.data.result.username}*\n*fullname: ${res.data.result.fullname}*\n*caption: ${res.data.result.caption}*`, id)
+        .catch(err => {
+          aruga.reply(from, mess.error.Ig, id)
+        })
+        })
+        .catch(err => {
+          aruga.reply(from, `Error !!`, id)
+        })
                                 break
                             case prefix+'nhpdf':
                                 if (args.length == 0)return aruga.reply(from, `Kode nuklir tidak ditemukan\nUsage : ${prefix}nhpdf 20935`, id)
@@ -2495,6 +2540,8 @@ break
                                 })
                                 break
                             case prefix+'asupan':
+								if (args.length == 0) return aruga.reply(from, `Selama Bulan Suci Ramadhan 1442 H fitur ini ditutup:)`, id)
+								/*
                                 await aruga.reply(from, mess.wait, id)
                                 axios.get(`http://lolhuman.herokuapp.com/api/asupan?apikey=dd42c2d20db7c924ccf66f5f`)
                                     .then(async (res) => {
@@ -2507,7 +2554,7 @@ break
                                         console.error(err)
                                         await aruga.reply(from, 'Error!', id)
                                     })
-                            break        
+                            break */       
 case prefix+'ytsearch':
     if (args.length === 0) return aruga.reply(from, `Kirim perintah *${prefix}ytsearch [ Query ]*, Contoh : ${prefix}ytsearch alan walker alone`)
     const ytsher = body.slice(10)
@@ -2614,6 +2661,8 @@ case prefix+'ytsearch':
 		aruga.sendText(from, 'berhasil membuat grup', id)
 		break
 	 case prefix+'chika':
+	if (args.length == 0) return aruga.reply(from, `Selama Bulan Suci Ramadhan 1442 H fitur ini ditutup:)`, id)
+		/*
     await aruga.reply(from, `media sedang dikirim , tunggu sampe10-20 detik`, id)
     fetch('https://raw.githubusercontent.com/AlvioAdjiJanuar/chika/main/chika.txt')
     .then(res => res.text())
@@ -2626,7 +2675,7 @@ case prefix+'ytsearch':
         .catch(() => {
             aruga.reply(from, 'Ada yang Error!', id)
         })
-    break
+    break*/
 	case prefix+'tomp3':
 	   if ((isMedia || isQuotedVideo || isQuotedFile)) {
             aruga.reply(from, mess.wait, id)
@@ -2762,6 +2811,8 @@ case prefix+'ytsearch':
 
         //Random Images
         case prefix+'anime':
+			if (args.length == 0) return aruga.reply(from, `Selama Bulan Suci Ramadhan 1442 H fitur ini ditutup:)`, id)
+			/*
             if (args.length == 0) return aruga.reply(from, `Untuk menggunakan ${prefix}anime\nSilahkan ketik: ${prefix}anime [query]\nContoh: ${prefix}anime random\n\nquery yang tersedia:\nrandom, waifu, husbu, neko`, id)
             if (args[0] == 'random' || args[0] == 'waifu' || args[0] == 'husbu' || args[0] == 'neko') {
                 fetch('https://raw.githubusercontent.com/ArugaZ/grabbed-results/main/random/anime/' + args[0] + '.txt')
@@ -2777,9 +2828,10 @@ case prefix+'ytsearch':
             } else {
                 aruga.reply(from, `Maaf query tidak tersedia. Silahkan ketik ${prefix}anime untuk melihat list query`)
             }
-            break
+            break*/
         case prefix+'kpop':
-            if (args.length == 0) return aruga.reply(from, `Untuk menggunakan ${prefix}kpop\nSilahkan ketik: ${prefix}kpop [query]\nContoh: ${prefix}kpop bts\n\nquery yang tersedia:\nblackpink, exo, bts`, id)
+           if (args.length == 0) return aruga.reply(from, `Selama Bulan Suci Ramadhan 1442 H fitur ini ditutup:)`, id)
+      /* if (args.length == 0) return aruga.reply(from, `Untuk menggunakan ${prefix}kpop\nSilahkan ketik: ${prefix}kpop [query]\nContoh: ${prefix}kpop bts\n\nquery yang tersedia:\nblackpink, exo, bts`, id)
             if (args[0] == 'blackpink' || args[0] == 'exo' || args[0] == 'bts') {
                 fetch('https://raw.githubusercontent.com/ArugaZ/grabbed-results/main/random/kpop/' + args[0] + '.txt')
                 .then(res => res.text())
@@ -2795,7 +2847,7 @@ case prefix+'ytsearch':
                 aruga.reply(from, `Maaf query tidak tersedia. Silahkan ketik ${prefix}kpop untuk melihat list query`)
             }
             break
-        case prefix+'memes':
+       */ case prefix+'memes':
             const randmeme = await meme.random()
             aruga.sendFileFromUrl(from, randmeme, '', '', id)
             .catch(() => {
@@ -2823,12 +2875,23 @@ case prefix+'ytsearch':
         })
         break
     case prefix+'kusonime':
-        if (args.length == 0) return aruga.reply(from, `Untuk mencari anime batch dari Kusonime, ketik ${prefix}kusonime judul\n\nContih : ${prefix}kusonime naruto`, id)
-        rugaapi.kusonime(args[0])
-        .then(async(res) => {
-            await aruga.sendFileFromUrl(from, `${res.link}`, '', `${res.text}, id`)
-        })
-        break
+  if (args.length == 0) return aruga.reply(from, `Mencari anime dari website Kusonime, gunakan ${prefix}kusonime judul anime`, id)
+  const carianim = body.slice(10)
+  aruga.reply(from, mess.wait, id)
+  try {
+    const kuson = await axios.get(`https://zahirr-web.herokuapp.com/api/anime/kusonime?search=${carianim}&apikey=zahirgans`)
+    const kusondat = kuson.data.result
+    const { download } = kusondat
+    let kusonimx = `*Title:* ${kusondat.title}\n*Title JP:* ${kusondat.title_jp}\n*Genre:* ${kusondat.genre}\n*Season:* ${kusondat.season}\n*Producer:* ${kusondat.producer}\n*Type:* ${kusondat.type}\n*Status:* ${kusondat.status}\n*Score:* ${kusondat.score}\n*Duration:* ${kusondat.duration}\n*Released On:* ${kusondat.released_on}\n*Description:* ${kusondat.description}\n`
+    for (let i = 0; i < download.length; i++) {
+      kusonimx += `\n─────────────────\n\n*•Resolution:* ${download[i].resolution}\n*•Web Down:* ${download[i].download_list[0].downloader}\n*•Link Down:* ${download[i].download_list[0].download_link}\n`
+    }
+    await aruga.sendFileFromUrl(from, kusondat.thumbs, 'kusonime.jpg', kusonimx, id)
+  } catch (err) {
+    console.log(err)
+    aruga.reply(from, 'anime yang anda cari tidak ada', id)
+  }
+  break
         case prefix+'images':
             if (args.length == 0) return aruga.reply(from, `Untuk mencari gambar dari pinterest\nketik: ${prefix}images [search]\ncontoh: ${prefix}images naruto`, id)
             const cariwall = body.slice(8)
@@ -3046,14 +3109,17 @@ case prefix+'ytsearch':
             case prefix+'twitter':
                 if (args.length == 0) return aruga.reply(from, `Kirim Perintah ${prefix}twitter [linktwitter]`, id)
                 aruga.reply(from, mess.wait, id)
-                rugaapi.twit(args)
+		const anjayx = body.slice(9)
+                axios.get(`http://docs-jojo.herokuapp.com/api/twitter?url=${anjayx}`)
                 .then(async(res) => {
-                    if (res.error) return aruga.reply(from, `${res.url}`, '', `${res.error}`)
-                    await aruga.sendFileFromUrl(from, res.mp4direct, '', '', id)
-                    .catch(res => {
+                    await aruga.sendFileFromUrl(from, res.data.result.media[0].download, '', `*caption: ${res.data.result.caption}*\n*quality: ${res.data.result.media[0].quality}*`, id)
+                    .catch(() => {
                         aruga.reply(from, 'error njing', id)
                     })
                 })
+.catch((err) => {
+console.log(err)
+})
                 break
 		case prefix+'tiktok':
 			aruga.reply(from, mess.wait, id)
@@ -3062,20 +3128,16 @@ case prefix+'ytsearch':
 				.then(async(res) => {
 					await aruga.sendFileFromUrl(from, res.url, '', '', id)
                     .catch(() => {
-                        aruga.reply(from, 'Error njing', id)
+                        aruga.reply(from, 'Error nih', id)
                     })
                 })
             break
-            case prefix+'tiktok2':
-                if (args.length == 0) return aruga.reply(from, `Kirim perintah *${prefix}tiktok [linkTiktok]*`, id)
+            case prefix+'tiktod':
+                if (args.length == 0) return aruga.reply(from, `Kirim perintah *${prefix}tiktod [linkTiktok]*`, id)
                 aruga.reply(from, mess.wait, id)
 		rugaapi.nowm2(args)
-		.then(async(res) => {
-		const buffxixi = await fetch(res.no_watermark)
-		const buffxuxa = await buffxixi.buffer();
-		await sleep(1000)
-		fs.writeFile('./media/tiktok.mp4', buffxuxa)
-		aruga.sendFile(from, './media/tiktok.mp4', '', '', id)
+        .then(async(res) => {
+            await aruga.sendFileFromUrl(from, `${res.links}`, '', `${res.text1}`, id)
                     .catch(() => {
                         aruga.reply(from, 'Error njing', id)
                     })
@@ -3086,22 +3148,25 @@ case prefix+'ytsearch':
             break
             case prefix+'ytmp4':
             if (args.length == 0) return aruga.reply(from, `Untuk mendownload video dari youtube\nketik: ${prefix}ytmp4 [link_yt]`, id)
-            const linkmp4 = args[0].replace('https://youtu.be/','').replace('https://www.youtube.com/watch?v=','')
-	    aruga.reply(from, mess.wait, id)
-	    rugaapi.ytmp4(`https://youtu.be/${linkmp4}`)
-            .then(async(res) => {
-				await aruga.sendFileFromUrl(from, res.image, '', `「 *YOUTUBE MP4* 」\n\nJudul: ${res.title}\nSize: ${res.size_video}\nDurasi: ${res.duration}\nRating: ${res.rating}\nViews: ${res.viewcount}\n\n*_Waitt, lemme send this fuckin' video`, id)
-                                if (Number(res.size_video.split(' MB')[0] > 50)) return aruga.reply(from, 'Maaf, Ukuran file terlalu besar!', id)
-				await aruga.sendFileFromUrl(from, res.mp4, '', '', id)
-				.catch((err) => {
-				aruga.reply(from, `URL ${pncri} Sudah pernah didownload sebelumnya, Link akan direset selama 30 menit`,id)
-			 })
+            const linkmp4 = body.slice(7)
+			rugaapi.ymp4(args)
+			.then(async(res) => {
+				aruga.sendFileFromUrl(from, res.thumbnail, 'thumb.jpg', `「 *YOUTUBE MP4* 」\n\n*Title:* ${res.title}\n*Filesize:* ${res.filesize}\n*Uploaded:* ${res.publishDate}\n*Likes:* ${res.likes}\n*Dislikes:* ${res.dislikes}\n*Views:* ${res.views}\n*Channel:* ${res.channel}\n\n*_${mess.wait}_*`, id)
+				const ymp4link = await axios.get(`http://docs-jojo.herokuapp.com/api/shorturl-at?url=${res.url_video}`)
+				const ymlink = ymp4link.data.result
+				if (!isPrem) return aruga.reply(from, `Karena anda bukan user Premium, silahkan download menggunakan link\n\nLink: ${ymlink}`, id)
+				await aruga.sendFileFromUrl(from, res.url_video, 'vid.mp4', '', id)
+				.catch(() => {
+					aruga.reply(from, 'Terjadi kesalahan, silahkan coba lagi', id)
+				})
 			})
 			.catch((err) => {
-				aruga.reply(from, `Error`, id)
-		})
-    			break
+				console.log(err)
+			})
+			break
 			case prefix+'nekopoi':
+			if (args.length == 0) return aruga.reply(from, `Selama Bulan Suci Ramadhan 1442 H fitur ini ditutup:)`, id)
+			/*
 			axios.get(`https://arugaz.my.id/api/anime/nekopoi/random`)
 			.then(async (res) => {
 				await aruga.sendFileFromUrl(from, `${res.data[0].image}`, '', `「 *NEKOPOI* 」\n\n*Judul :* ${res.data[0].title}\n*Link :* ${res.data[0].link}`,id)
@@ -3109,17 +3174,16 @@ case prefix+'ytsearch':
 					aruga.reply(from, 'Error njing', id)
 				})
 			})
-                break
-            case prefix+'scdl':
-                if (args.length == 0) return aruga.reply(from, `Untuk mencari lagu dari Soundcloud\n\nUsage : ${prefix}scdl <url lagu>\nContoh: ${prefix}scdl https://soundcloud.com/marshmellomusic/alone`, id)
-                axios.get(`http://zekais-api.herokuapp.com/scdl?url=${body.slice(6)}`)
+                break*/
+            case prefix+'joox':
+                if (args.length == 0) return aruga.reply(from, `Untuk mencari lagu dari Joox\n\nUsage : ${prefix}joox judul lagu\nContoh: ${prefix}joox akad`, id)
+                axios.get(`https://api.zeks.xyz/api/joox?apikey=apivinz&q={body.slice(6)}`)
+				aruga.reply(from, mess.wait, id)
                 .then(async (res) => {
-                    await aruga.sendFileFromUrl(from, `${res.data.result[0].linkImg}`, 'img.jpg', `「 *Soundcloud* 」\n\n*Judul :* ${res.data.result[0].judul}\n*Penyanyi :* ${res.data.result[0].penyanyi}\n*Album :* ${res.data.result[0].album}\n*Size :* ${res.data.result[0].filesize}\n*Durasi :* ${res.data.result[0].duration}`)
+                    await aruga.sendFileFromUrl(from, `${res.data.result[0].linkImg}`, 'img.jpg', `「 *JOOX* 」\n\n*Judul :* ${res.data.result[0].judul}\n*Penyanyi :* ${res.data.result[0].penyanyi}\n*Album :* ${res.data.result[0].album}\n*Size :* ${res.data.result[0].filesize}\n*Durasi :* ${res.data.result[0].duration}`, id)
                     await aruga.sendFileFromUrl(from, `${res.data.result[0].linkMp3}`, '', '', id)
-                    const liruk = `${res.data.result[0].lirik}`
-                    aruga.reply(from, `Lirik dari ${body.slice(6)}\n\n${res.data.result[0].lirik}`)
                     .catch(() => {
-                        aruga.reply(from, `Maaf, lagu yang anda cari tidak ditemukan`, id)
+                        aruga.reply(from, `Maaf, lagu yang anda cari tidak ditemukan, maklum joox mah ga lengkap`, id)
                     })
                 })
                 break
@@ -3914,14 +3978,14 @@ case prefix+'ytsearch':
                     aruga.sendText(ownerNumber, 'Google Error : ' + e);
                 })
                 break
-                case prefix+'crygif':
+              /*  case prefix+'crygif':
                     if (!isPrem) return aruga.reply(from, `Command Premium, hubungi owner untuk mendaftar`, id)
                     aruga.reply(from, mess.wait, id)
                     axios.get(`https://tobz-api.herokuapp.com/api/cry?apikey=BotWeA`).then(res => {
 			aruga.sendFileFromUrl(from, res.data.result, 'img.jpg', '', id)
                         aruga.sendStickerfromUrl(from, res.data.result, `cry.gif`, '', id)
                     })
-			break
+			break*/
 		case prefix+'tickle':
 			if (!isPrem) return aruga.reply(from, 'Command Premium!\nChat owner Buat mendaftar!', id)
 			aruga.reply(from, mess.wait, id)
@@ -3930,47 +3994,53 @@ case prefix+'ytsearch':
 			})
 			break
 		case prefix+'cuddle':
-			if (!isPrem) return aruga.reply(from, 'Command Premium!\nChat owner buat mendaftar!', id)
+		if (args.length == 0) return aruga.reply(from, `Selama Bulan Suci Ramadhan 1442 H fitur ini ditutup:)`, id)
+        /*	if (!isPrem) return aruga.reply(from, 'Command Premium!\nChat owner buat mendaftar!', id)
 			aruga.reply(from, mess.wait, id)
 			axios.get('https://nekos.life/api/v2/img/cuddle').then(res => {
 			aruga.sendStickerfromUrl(from, res.data.url)
 			})
-			break
+			break*/
 		case prefix+'trapnime':
-			if (!isPrem) return aruga.reply(from, 'Command Premium!\nChat owner buat mendaftar', id)
+	if (args.length == 0) return aruga.reply(from, `Selama Bulan Suci Ramadhan 1442 H fitur ini ditutup:)`, id)
+        /*		if (!isPrem) return aruga.reply(from, 'Command Premium!\nChat owner buat mendaftar', id)
 			aruga.reply(from, mess.wait, id)
 			axios.get('https://nekos.life/api/v2/img/trap').then(res => {
 			aruga.sendFileFromUrl(from, res.data.url, 'img.jpg', '', id)
 			})
-			break
+			break*/
 		case prefix+'kuni':
-			if (!isPrem) return aruga.reply(from, 'Command Premium!\nChat owner buat mendaftar', id)
+if (args.length == 0) return aruga.reply(from, `Selama Bulan Suci Ramadhan 1442 H fitur ini ditutup:)`, id)
+        /*			if (!isPrem) return aruga.reply(from, 'Command Premium!\nChat owner buat mendaftar', id)
 			aruga.reply(from, mess.wait, id)
 			axios.get('https://nekos.life/api/v2/img/kuni').then(res => {
 			aruga.sendStickerfromUrl(from, res.data.url)
 			})
-			break
+			break*/
 		case prefix+'classic':
-			if (!isPrem) return aruga.reply(from, 'Command Premium!\nChat owner buat mendaftar', id)
+		if (args.length == 0) return aruga.reply(from, `Selama Bulan Suci Ramadhan 1442 H fitur ini ditutup:)`, id)
+        /*	if (!isPrem) return aruga.reply(from, 'Command Premium!\nChat owner buat mendaftar', id)
 			aruga.reply(from, mess.wait, id)
 			axios.get('https://nekos.life/api/v2/img/classic').then(res => {
 			aruga.sendStickerfromUrl(from, res.data.url)
 			})
-			break
+			break*/
 		case prefix+'spank':
-			if (!isPrem) return aruga.reply(from, 'Command Premium!\nChat owner buat mendaftar', id)
+		if (args.length == 0) return aruga.reply(from, `Selama Bulan Suci Ramadhan 1442 H fitur ini ditutup:)`, id)
+        /*	if (!isPrem) return aruga.reply(from, 'Command Premium!\nChat owner buat mendaftar', id)
 			aruga.reply(from, mess.wait, id)
 			axios.get('https://nekos.life/api/v2/img/spank').then(res => {
 			aruga.sendStickerfromUrl(from, res.data.url)
 			})
-			break
+			break*/
                 case prefix+'randomhentai':
-                        if (!isPrem) return aruga.reply(from, 'Command Premium\nChat owner buat mendaftar', id)
+                   if (args.length == 0) return aruga.reply(from, `Selama Bulan Suci Ramadhan 1442 H fitur ini ditutup:)`, id)
+        /*     if (!isPrem) return aruga.reply(from, 'Command Premium\nChat owner buat mendaftar', id)
                         aruga.sendText(from, mess.wait);
                         axios.get(`https://lindow-api.herokuapp.com/api/hentai?apikey=megacantik`).then(res => {
                         aruga.sendFileFromUrl(from, res.data.result, 'hentai.jpg','', id)
             })
-                        break
+                        break*/
 		case prefix+'randompat':
 			if (!isPrem) return aruga.reply(from, 'Command Premium!\nChat owner buat mendaftar', id)
 			aruga.reply(from, mess.wait, id)
@@ -3984,7 +4054,7 @@ case prefix+'ytsearch':
 		case prefix+'pokegif':
 			if (!isPrem) return aruga.reply(from, 'Command Premium!\nChat owner buat mendaftar', id)
 			aruga.reply(from, mess.wait, id)
-			axios.get('https://cdn.nekos.life/poke/poke_007.gif').then(res => {
+			axios.get('https://nekos.life/api/v2/img/poke').then(res => {
 			aruga.sendStickerfromUrl(from, res.data.url)
 			})
 			break
@@ -3998,7 +4068,7 @@ case prefix+'ytsearch':
 			aruga.reply(from, 'Error!', id)
 		})
 		break
-                case prefix+'randomhug':
+             /*   case prefix+'randomhug':
                         if (!isGroupMsg) return aruga.reply(from, 'Perintah ini hanya bisa di gunakan dalam group!', id)
                         if (!isPrem) return aruga.reply(from, 'Command Premium\nChat owner buat mendaftar', id)
                         aruga.sendText(from, mess.wait);
@@ -4006,12 +4076,14 @@ case prefix+'ytsearch':
                         aruga.sendFileFromUrl(from, res.data.result, `hug.gif`, '', id)
 			aruga.sendStickerfromUrl(from, res.data.result)
         })
-                        break
+                        break*/
             case prefix+'ptl':
+					if (args.length == 0) return aruga.reply(from, `Selama Bulan Suci Ramadhan 1442 H fitur ini ditutup:)`, id)
+					/*
                     const pptl = ["https://i.pinimg.com/564x/b2/84/55/b2845599d303a4f8fc4f7d2a576799fa.jpg","https://i.pinimg.com/236x/98/08/1c/98081c4dffde1c89c444db4dc1912d2d.jpg","https://i.pinimg.com/236x/a7/e2/fe/a7e2fee8b0abef9d9ecc8885557a4e91.jpg","https://i.pinimg.com/236x/ee/ae/76/eeae769648dfaa18cac66f1d0be8c160.jpg","https://i.pinimg.com/236x/b2/84/55/b2845599d303a4f8fc4f7d2a576799fa.jpg","https://i.pinimg.com/564x/78/7c/49/787c4924083a9424a900e8f1f4fdf05f.jpg","https://i.pinimg.com/236x/eb/05/dc/eb05dc1c306f69dd43b7cae7cbe03d27.jpg","https://i.pinimg.com/236x/d0/1b/40/d01b40691c68b84489f938b939a13871.jpg","https://i.pinimg.com/236x/31/f3/06/31f3065fa218856d7650e84b000d98ab.jpg","https://i.pinimg.com/236x/4a/e5/06/4ae5061a5c594d3fdf193544697ba081.jpg","https://i.pinimg.com/236x/56/45/dc/5645dc4a4a60ac5b2320ce63c8233d6a.jpg","https://i.pinimg.com/236x/7f/ad/82/7fad82eec0fa64a41728c9868a608e73.jpg","https://i.pinimg.com/236x/ce/f8/aa/cef8aa0c963170540a96406b6e54991c.jpg","https://i.pinimg.com/236x/77/02/34/77023447b040aef001b971e0defc73e3.jpg","https://i.pinimg.com/236x/4a/5c/38/4a5c38d39687f76004a097011ae44c7d.jpg","https://i.pinimg.com/236x/41/72/af/4172af2053e54ec6de5e221e884ab91b.jpg","https://i.pinimg.com/236x/26/63/ef/2663ef4d4ecfc935a6a2b51364f80c2b.jpg","https://i.pinimg.com/236x/2b/cb/48/2bcb487b6d398e8030814c7a6c5a641d.jpg","https://i.pinimg.com/236x/62/da/23/62da234d941080696428e6d4deec6d73.jpg","https://i.pinimg.com/236x/d4/f3/40/d4f340e614cc4f69bf9a31036e3d03c5.jpg","https://i.pinimg.com/236x/d4/97/dd/d497dd29ca202be46111f1d9e62ffa65.jpg","https://i.pinimg.com/564x/52/35/66/523566d43058e26bf23150ac064cfdaa.jpg","https://i.pinimg.com/236x/36/e5/27/36e52782f8d10e4f97ec4dbbc97b7e67.jpg","https://i.pinimg.com/236x/02/a0/33/02a033625cb51e0c878e6df2d8d00643.jpg","https://i.pinimg.com/236x/30/9b/04/309b04d4a498addc6e4dd9d9cdfa57a9.jpg","https://i.pinimg.com/236x/9e/1d/ef/9e1def3b7ce4084b7c64693f15b8bea9.jpg","https://i.pinimg.com/236x/e1/8f/a2/e18fa21af74c28e439f1eb4c60e5858a.jpg","https://i.pinimg.com/236x/22/d9/22/22d9220de8619001fe1b27a2211d477e.jpg","https://i.pinimg.com/236x/af/ac/4d/afac4d11679184f557d9294c2270552d.jpg","https://i.pinimg.com/564x/52/be/c9/52bec924b5bdc0d761cfb1160865b5a1.jpg","https://i.pinimg.com/236x/1a/5a/3c/1a5a3cffd0d936cd4969028668530a15.jpg"]
                     let pep = pptl[Math.floor(Math.random() * pptl.length)]
                     aruga.sendFileFromUrl(from, pep, 'pptl.jpg', 'nihh ngab', id)
-                    break
+                    break*/
 			case prefix+'groupicon':
 			case prefix+'gcicon':
 					if (!isGroupMsg) return aruga.reply(from, `Perintah ini hanya bisa digunakan didalam grup!`, id)
@@ -4189,7 +4261,7 @@ _Desc di update oleh : @${chat.groupMetadata.descOwner.replace('@c.us','')} pada
                         }
                     break  
                 case prefix+'say':
-                    if(args.length == 1)return aruga.reply(from, `Untuk pengulangan kata ketik: ${prefix}say [textnyaa]\nContoh: ${prefix}say I Love You 2500:v`, id)
+                    if(args.length == 0)return aruga.reply(from, `Untuk pengulangan kata ketik: ${prefix}say [textnyaa]\nContoh: ${prefix}say I Love You 2500:v`, id)
                         const wuh = body.slice(5)
 						aruga.sendText(from, wuh, id)
 						break
@@ -4260,10 +4332,11 @@ _Desc di update oleh : @${chat.groupMetadata.descOwner.replace('@c.us','')} pada
                             aruga.sendFileFromUrl(from, kya, 'Dog.jpeg', 'Doggo sparkles', id)
                         break
                     case prefix+'wpanime' :
-                            const walnime = ['https://cdn.nekos.life/wallpaper/QwGLg4oFkfY.png','https://cdn.nekos.life/wallpaper/bUzSjcYxZxQ.jpg','https://cdn.nekos.life/wallpaper/j49zxzaUcjQ.jpg','https://cdn.nekos.life/wallpaper/YLTH5KuvGX8.png','https://cdn.nekos.life/wallpaper/Xi6Edg133m8.jpg','https://cdn.nekos.life/wallpaper/qvahUaFIgUY.png','https://cdn.nekos.life/wallpaper/leC8q3u8BSk.jpg','https://cdn.nekos.life/wallpaper/tSUw8s04Zy0.jpg','https://cdn.nekos.life/wallpaper/sqsj3sS6EJE.png','https://cdn.nekos.life/wallpaper/HmjdX_s4PU4.png','https://cdn.nekos.life/wallpaper/Oe2lKgLqEXY.jpg','https://cdn.nekos.life/wallpaper/GTwbUYI-xTc.jpg','https://cdn.nekos.life/wallpaper/nn_nA8wTeP0.png','https://cdn.nekos.life/wallpaper/Q63o6v-UUa8.png','https://cdn.nekos.life/wallpaper/ZXLFm05K16Q.jpg','https://cdn.nekos.life/wallpaper/cwl_1tuUPuQ.png','https://cdn.nekos.life/wallpaper/wWhtfdbfAgM.jpg','https://cdn.nekos.life/wallpaper/3pj0Xy84cPg.jpg','https://cdn.nekos.life/wallpaper/sBoo8_j3fkI.jpg','https://cdn.nekos.life/wallpaper/gCUl_TVizsY.png','https://cdn.nekos.life/wallpaper/LmTi1k9REW8.jpg','https://cdn.nekos.life/wallpaper/sbq_4WW2PUM.jpg','https://cdn.nekos.life/wallpaper/QOSUXEbzDQA.png','https://cdn.nekos.life/wallpaper/khaqGIHsiqk.jpg','https://cdn.nekos.life/wallpaper/iFtEXugqQgA.png','https://cdn.nekos.life/wallpaper/deFKIDdRe1I.jpg','https://cdn.nekos.life/wallpaper/OHZVtvDm0gk.jpg','https://cdn.nekos.life/wallpaper/YZYa00Hp2mk.jpg','https://cdn.nekos.life/wallpaper/R8nPIKQKo9g.png','https://cdn.nekos.life/wallpaper/brn3qpRBEE.jpg','https://cdn.nekos.life/wallpaper/ADTEQdaHhFI.png','https://cdn.nekos.life/wallpaper/MGvWl6om-Fw.jpg','https://cdn.nekos.life/wallpaper/YGmpjZW3AoQ.jpg','https://cdn.nekos.life/wallpaper/hNCgoY-mQPI.jpg','https://cdn.nekos.life/wallpaper/3db40hylKs8.png','https://cdn.nekos.life/wallpaper/iQ2FSo5nCF8.jpg','https://cdn.nekos.life/wallpaper/meaSEfeq9QM.png','https://cdn.nekos.life/wallpaper/CmEmn79xnZU.jpg','https://cdn.nekos.life/wallpaper/MAL18nB-yBI.jpg','https://cdn.nekos.life/wallpaper/FUuBi2xODuI.jpg','https://cdn.nekos.life/wallpaper/ez-vNNuk6Ck.jpg','https://cdn.nekos.life/wallpaper/K4-z0Bc0Vpc.jpg','https://cdn.nekos.life/wallpaper/Y4JMbswrNg8.jpg','https://cdn.nekos.life/wallpaper/ffbPXIxt4-0.png','https://cdn.nekos.life/wallpaper/x63h_W8KFL8.jpg','https://cdn.nekos.life/wallpaper/lktzjDRhWyg.jpg','https://cdn.nekos.life/wallpaper/j7oQtvRZBOI.jpg','https://cdn.nekos.life/wallpaper/MQQEAD7TUpQ.png','https://cdn.nekos.life/wallpaper/lEG1-Eeva6Y.png','https://cdn.nekos.life/wallpaper/Loh5wf0O5Aw.png','https://cdn.nekos.life/wallpaper/yO6ioREenLA.png','https://cdn.nekos.life/wallpaper/4vKWTVgMNDc.jpg','https://cdn.nekos.life/wallpaper/Yk22OErU8eg.png','https://cdn.nekos.life/wallpaper/Y5uf1hsnufE.png','https://cdn.nekos.life/wallpaper/xAmBpMUd2Zw.jpg','https://cdn.nekos.life/wallpaper/f_RWFoWciRE.jpg','https://cdn.nekos.life/wallpaper/Y9qjP2Y__PA.jpg','https://cdn.nekos.life/wallpaper/eqEzgohpPwc.jpg','https://cdn.nekos.life/wallpaper/s1MBos_ZGWo.jpg','https://cdn.nekos.life/wallpaper/PtW0or_Pa9c.png','https://cdn.nekos.life/wallpaper/32EAswpy3M8.png','https://cdn.nekos.life/wallpaper/Z6eJZf5xhcE.png','https://cdn.nekos.life/wallpaper/xdiSF731IFY.jpg','https://cdn.nekos.life/wallpaper/Y9r9trNYadY.png','https://cdn.nekos.life/wallpaper/8bH8CXn-sOg.jpg','https://cdn.nekos.life/wallpaper/a02DmIFzRBE.png','https://cdn.nekos.life/wallpaper/MnrbXcPa7Oo.png','https://cdn.nekos.life/wallpaper/s1Tc9xnugDk.jpg','https://cdn.nekos.life/wallpaper/zRqEx2gnfmg.jpg','https://cdn.nekos.life/wallpaper/PtW0or_Pa9c.png','https://cdn.nekos.life/wallpaper/0ECCRW9soHM.jpg','https://cdn.nekos.life/wallpaper/kAw8QHl_wbM.jpg','https://cdn.nekos.life/wallpaper/ZXcaFmpOlLk.jpg','https://cdn.nekos.life/wallpaper/WVEdi9Ng8UE.png','https://cdn.nekos.life/wallpaper/IRu29rNgcYU.png','https://cdn.nekos.life/wallpaper/LgIJ_1AL3rM.jpg','https://cdn.nekos.life/wallpaper/DVD5_fLJEZA.jpg','https://cdn.nekos.life/wallpaper/siqOQ7k8qqk.jpg','https://cdn.nekos.life/wallpaper/CXNX_15eGEQ.png','https://cdn.nekos.life/wallpaper/s62tGjOTHnk.jpg','https://cdn.nekos.life/wallpaper/tmQ5ce6EfJE.png','https://cdn.nekos.life/wallpaper/Zju7qlBMcQ4.jpg','https://cdn.nekos.life/wallpaper/CPOc_bMAh2Q.png','https://cdn.nekos.life/wallpaper/Ew57S1KtqsY.jpg','https://cdn.nekos.life/wallpaper/hVpFbYJmZZc.jpg','https://cdn.nekos.life/wallpaper/sb9_J28pftY.jpg','https://cdn.nekos.life/wallpaper/JDoIi_IOB04.jpg','https://cdn.nekos.life/wallpaper/rG76AaUZXzk.jpg','https://cdn.nekos.life/wallpaper/9ru2luBo360.png','https://cdn.nekos.life/wallpaper/ghCgiWFxGwY.png','https://cdn.nekos.life/wallpaper/OSR-i-Rh7ZY.png','https://cdn.nekos.life/wallpaper/65VgtPyweCc.jpg','https://cdn.nekos.life/wallpaper/3vn-0FkNSbM.jpg','https://cdn.nekos.life/wallpaper/u02Y0-AJPL0.jpg','https://cdn.nekos.life/wallpaper/-Z-0fGflRc.jpg','https://cdn.nekos.life/wallpaper/3VjNKqEPp58.jpg','https://cdn.nekos.life/wallpaper/NoG4lKnk6Sc.jpg','https://cdn.nekos.life/wallpaper/xiTxgRMA_IA.jpg','https://cdn.nekos.life/wallpaper/yq1ZswdOGpg.png','https://cdn.nekos.life/wallpaper/4SUxw4M3UMA.png','https://cdn.nekos.life/wallpaper/cUPnQOHNLg0.jpg','https://cdn.nekos.life/wallpaper/zczjuLWRisA.jpg','https://cdn.nekos.life/wallpaper/TcxvU_diaC0.png','https://cdn.nekos.life/wallpaper/7qqWhEF_uoY.jpg','https://cdn.nekos.life/wallpaper/J4t_7DvoUZw.jpg','https://cdn.nekos.life/wallpaper/xQ1Pg5D6J4U.jpg','https://cdn.nekos.life/wallpaper/aIMK5Ir4xho.jpg','https://cdn.nekos.life/wallpaper/6gneEXrNAWU.jpg','https://cdn.nekos.life/wallpaper/PSvNdoISWF8.jpg','https://cdn.nekos.life/wallpaper/SjgF2-iOmV8.jpg','https://cdn.nekos.life/wallpaper/vU54ikOVY98.jpg','https://cdn.nekos.life/wallpaper/QjnfRwkRU-Q.jpg','https://cdn.nekos.life/wallpaper/uSKqzz6ZdXc.png','https://cdn.nekos.life/wallpaper/AMrcxZOnVBE.jpg','https://cdn.nekos.life/wallpaper/N1l8SCMxamE.jpg','https://cdn.nekos.life/wallpaper/n2cBaTo-J50.png','https://cdn.nekos.life/wallpaper/ZXcaFmpOlLk.jpg','https://cdn.nekos.life/wallpaper/7bwxy3elI7o.png','https://cdn.nekos.life/wallpaper/7VW4HwF6LcM.jpg','https://cdn.nekos.life/wallpaper/YtrPAWul1Ug.png','https://cdn.nekos.life/wallpaper/1p4_Mmq95Ro.jpg','https://cdn.nekos.life/wallpaper/EY5qz5iebJw.png','https://cdn.nekos.life/wallpaper/aVDS6iEAIfw.jpg','https://cdn.nekos.life/wallpaper/veg_xpHQfjE.jpg','https://cdn.nekos.life/wallpaper/meaSEfeq9QM.png','https://cdn.nekos.life/wallpaper/Xa_GtsKsy-s.png','https://cdn.nekos.life/wallpaper/6Bx8R6D75eM.png','https://cdn.nekos.life/wallpaper/zXOGXH_b8VY.png','https://cdn.nekos.life/wallpaper/VQcviMxoQ00.png','https://cdn.nekos.life/wallpaper/CJnRl-PKWe8.png','https://cdn.nekos.life/wallpaper/zEWYfFL_Ero.png','https://cdn.nekos.life/wallpaper/_C9Uc5MPaz4.png','https://cdn.nekos.life/wallpaper/zskxNqNXyG0.jpg','https://cdn.nekos.life/wallpaper/g7w14PjzzcQ.jpg','https://cdn.nekos.life/wallpaper/KavYXR_GRB4.jpg','https://cdn.nekos.life/wallpaper/Z_r9WItzJBc.jpg','https://cdn.nekos.life/wallpaper/Qps-0JD6834.jpg','https://cdn.nekos.life/wallpaper/Ri3CiJIJ6M8.png','https://cdn.nekos.life/wallpaper/ArGYIpJwehY.jpg','https://cdn.nekos.life/wallpaper/uqYKeYM5h8w.jpg','https://cdn.nekos.life/wallpaper/h9cahfuKsRg.jpg','https://cdn.nekos.life/wallpaper/iNPWKO8d2a4.jpg','https://cdn.nekos.life/wallpaper/j2KoFVhsNig.jpg','https://cdn.nekos.life/wallpaper/z5Nc-aS6QJ4.jpg','https://cdn.nekos.life/wallpaper/VUFoK8l1qs0.png','https://cdn.nekos.life/wallpaper/rQ8eYh5mXN8.png','https://cdn.nekos.life/wallpaper/D3NxNISDavQ.png','https://cdn.nekos.life/wallpaper/Z_CiozIenrU.jpg','https://cdn.nekos.life/wallpaper/np8rpfZflWE.jpg','https://cdn.nekos.life/wallpaper/ED-fgS09gik.jpg','https://cdn.nekos.life/wallpaper/AB0Cwfs1X2w.jpg','https://cdn.nekos.life/wallpaper/DZBcYfHouiI.jpg','https://cdn.nekos.life/wallpaper/lC7pB-GRAcQ.png','https://cdn.nekos.life/wallpaper/zrI-sBSt2zE.png','https://cdn.nekos.life/wallpaper/RJhylwaCLk.jpg','https://cdn.nekos.life/wallpaper/6km5m_GGIuw.png','https://cdn.nekos.life/wallpaper/3db40hylKs8.png','https://cdn.nekos.life/wallpaper/oggceF06ONQ.jpg','https://cdn.nekos.life/wallpaper/ELdH2W5pQGo.jpg','https://cdn.nekos.life/wallpaper/Zun_n5pTMRE.png','https://cdn.nekos.life/wallpaper/VqhFKG5U15c.png','https://cdn.nekos.life/wallpaper/NsMoiW8JZ60.jpg','https://cdn.nekos.life/wallpaper/XE4iXbw__Us.png','https://cdn.nekos.life/wallpaper/a9yXhS2zbhU.jpg','https://cdn.nekos.life/wallpaper/jjnd31_3Ic8.jpg','https://cdn.nekos.life/wallpaper/Nxanxa-xO3s.png','hithuttps://cdn.nekos.life/wallpaper/dBHlPcbuDc4.jpg','https://cdn.nekos.life/wallpaper/6wUZIavGVQU.jpg','https://cdn.nekos.life/wallpaper/-Z-0fGflRc.jpg','https://cdn.nekos.life/wallpaper/H9OUpIrF4gU.jpg','https://cdn.nekos.life/wallpaper/xlRdH3fBMz4.jpg','https://cdn.nekos.life/wallpaper/7IzUIeaae9o.jpg','https://cdn.nekos.life/wallpaper/FZCVL6PyWq0.jpg','https://cdn.nekos.life/wallpaper/5dG-HH6d0yw.png','https://cdn.nekos.life/wallpaper/ddxyA37HiwE.png','https://cdn.nekos.life/wallpaper/I0oj_jdCD4k.jpg','https://cdn.nekos.life/wallpaper/ABchTV97_Ts.png','https://cdn.nekos.life/wallpaper/58C37kkq39Y.png','https://cdn.nekos.life/wallpaper/HMS5mK7WSGA.jpg','https://cdn.nekos.life/wallpaper/1O3Yul9ojS8.jpg','https://cdn.nekos.life/wallpaper/hdZI1XsYWYY.jpg','https://cdn.nekos.life/wallpaper/h8pAJJnBXZo.png','https://cdn.nekos.life/wallpaper/apO9K9JIUp8.jpg','https://cdn.nekos.life/wallpaper/p8f8IY_2mwg.jpg','https://cdn.nekos.life/wallpaper/HY1WIB2r_cE.jpg','https://cdn.nekos.life/wallpaper/u02Y0-AJPL0.jpg','https://cdn.nekos.life/wallpaper/jzN74LcnwE8.png','https://cdn.nekos.life/wallpaper/IeAXo5nJhjw.jpg','https://cdn.nekos.life/wallpaper/7lgPyU5fuLY.jpg','https://cdn.nekos.life/wallpaper/f8SkRWzXVxk.png','https://cdn.nekos.life/wallpaper/ZmDTpGGeMR8.jpg','https://cdn.nekos.life/wallpaper/AMrcxZOnVBE.jpg','https://cdn.nekos.life/wallpaper/ZhP-f8Icmjs.jpg','https://cdn.nekos.life/wallpaper/7FyUHX3fE2o.jpg','https://cdn.nekos.life/wallpaper/CZoSLK-5ng8.png','https://cdn.nekos.life/wallpaper/pSNDyxP8l3c.png','https://cdn.nekos.life/wallpaper/AhYGHF6Fpck.jpg','https://cdn.nekos.life/wallpaper/ic6xRRptRes.jpg','https://cdn.nekos.life/wallpaper/89MQq6KaggI.png','https://cdn.nekos.life/wallpaper/y1DlFeHHTEE.png']
+                          if (args.length == 0) return aruga.reply(from, `Selama Bulan Suci Ramadhan 1442 H fitur ini ditutup:)`, id) 
+                            /*const walnime = ['https://cdn.nekos.life/wallpaper/QwGLg4oFkfY.png','https://cdn.nekos.life/wallpaper/bUzSjcYxZxQ.jpg','https://cdn.nekos.life/wallpaper/j49zxzaUcjQ.jpg','https://cdn.nekos.life/wallpaper/YLTH5KuvGX8.png','https://cdn.nekos.life/wallpaper/Xi6Edg133m8.jpg','https://cdn.nekos.life/wallpaper/qvahUaFIgUY.png','https://cdn.nekos.life/wallpaper/leC8q3u8BSk.jpg','https://cdn.nekos.life/wallpaper/tSUw8s04Zy0.jpg','https://cdn.nekos.life/wallpaper/sqsj3sS6EJE.png','https://cdn.nekos.life/wallpaper/HmjdX_s4PU4.png','https://cdn.nekos.life/wallpaper/Oe2lKgLqEXY.jpg','https://cdn.nekos.life/wallpaper/GTwbUYI-xTc.jpg','https://cdn.nekos.life/wallpaper/nn_nA8wTeP0.png','https://cdn.nekos.life/wallpaper/Q63o6v-UUa8.png','https://cdn.nekos.life/wallpaper/ZXLFm05K16Q.jpg','https://cdn.nekos.life/wallpaper/cwl_1tuUPuQ.png','https://cdn.nekos.life/wallpaper/wWhtfdbfAgM.jpg','https://cdn.nekos.life/wallpaper/3pj0Xy84cPg.jpg','https://cdn.nekos.life/wallpaper/sBoo8_j3fkI.jpg','https://cdn.nekos.life/wallpaper/gCUl_TVizsY.png','https://cdn.nekos.life/wallpaper/LmTi1k9REW8.jpg','https://cdn.nekos.life/wallpaper/sbq_4WW2PUM.jpg','https://cdn.nekos.life/wallpaper/QOSUXEbzDQA.png','https://cdn.nekos.life/wallpaper/khaqGIHsiqk.jpg','https://cdn.nekos.life/wallpaper/iFtEXugqQgA.png','https://cdn.nekos.life/wallpaper/deFKIDdRe1I.jpg','https://cdn.nekos.life/wallpaper/OHZVtvDm0gk.jpg','https://cdn.nekos.life/wallpaper/YZYa00Hp2mk.jpg','https://cdn.nekos.life/wallpaper/R8nPIKQKo9g.png','https://cdn.nekos.life/wallpaper/brn3qpRBEE.jpg','https://cdn.nekos.life/wallpaper/ADTEQdaHhFI.png','https://cdn.nekos.life/wallpaper/MGvWl6om-Fw.jpg','https://cdn.nekos.life/wallpaper/YGmpjZW3AoQ.jpg','https://cdn.nekos.life/wallpaper/hNCgoY-mQPI.jpg','https://cdn.nekos.life/wallpaper/3db40hylKs8.png','https://cdn.nekos.life/wallpaper/iQ2FSo5nCF8.jpg','https://cdn.nekos.life/wallpaper/meaSEfeq9QM.png','https://cdn.nekos.life/wallpaper/CmEmn79xnZU.jpg','https://cdn.nekos.life/wallpaper/MAL18nB-yBI.jpg','https://cdn.nekos.life/wallpaper/FUuBi2xODuI.jpg','https://cdn.nekos.life/wallpaper/ez-vNNuk6Ck.jpg','https://cdn.nekos.life/wallpaper/K4-z0Bc0Vpc.jpg','https://cdn.nekos.life/wallpaper/Y4JMbswrNg8.jpg','https://cdn.nekos.life/wallpaper/ffbPXIxt4-0.png','https://cdn.nekos.life/wallpaper/x63h_W8KFL8.jpg','https://cdn.nekos.life/wallpaper/lktzjDRhWyg.jpg','https://cdn.nekos.life/wallpaper/j7oQtvRZBOI.jpg','https://cdn.nekos.life/wallpaper/MQQEAD7TUpQ.png','https://cdn.nekos.life/wallpaper/lEG1-Eeva6Y.png','https://cdn.nekos.life/wallpaper/Loh5wf0O5Aw.png','https://cdn.nekos.life/wallpaper/yO6ioREenLA.png','https://cdn.nekos.life/wallpaper/4vKWTVgMNDc.jpg','https://cdn.nekos.life/wallpaper/Yk22OErU8eg.png','https://cdn.nekos.life/wallpaper/Y5uf1hsnufE.png','https://cdn.nekos.life/wallpaper/xAmBpMUd2Zw.jpg','https://cdn.nekos.life/wallpaper/f_RWFoWciRE.jpg','https://cdn.nekos.life/wallpaper/Y9qjP2Y__PA.jpg','https://cdn.nekos.life/wallpaper/eqEzgohpPwc.jpg','https://cdn.nekos.life/wallpaper/s1MBos_ZGWo.jpg','https://cdn.nekos.life/wallpaper/PtW0or_Pa9c.png','https://cdn.nekos.life/wallpaper/32EAswpy3M8.png','https://cdn.nekos.life/wallpaper/Z6eJZf5xhcE.png','https://cdn.nekos.life/wallpaper/xdiSF731IFY.jpg','https://cdn.nekos.life/wallpaper/Y9r9trNYadY.png','https://cdn.nekos.life/wallpaper/8bH8CXn-sOg.jpg','https://cdn.nekos.life/wallpaper/a02DmIFzRBE.png','https://cdn.nekos.life/wallpaper/MnrbXcPa7Oo.png','https://cdn.nekos.life/wallpaper/s1Tc9xnugDk.jpg','https://cdn.nekos.life/wallpaper/zRqEx2gnfmg.jpg','https://cdn.nekos.life/wallpaper/PtW0or_Pa9c.png','https://cdn.nekos.life/wallpaper/0ECCRW9soHM.jpg','https://cdn.nekos.life/wallpaper/kAw8QHl_wbM.jpg','https://cdn.nekos.life/wallpaper/ZXcaFmpOlLk.jpg','https://cdn.nekos.life/wallpaper/WVEdi9Ng8UE.png','https://cdn.nekos.life/wallpaper/IRu29rNgcYU.png','https://cdn.nekos.life/wallpaper/LgIJ_1AL3rM.jpg','https://cdn.nekos.life/wallpaper/DVD5_fLJEZA.jpg','https://cdn.nekos.life/wallpaper/siqOQ7k8qqk.jpg','https://cdn.nekos.life/wallpaper/CXNX_15eGEQ.png','https://cdn.nekos.life/wallpaper/s62tGjOTHnk.jpg','https://cdn.nekos.life/wallpaper/tmQ5ce6EfJE.png','https://cdn.nekos.life/wallpaper/Zju7qlBMcQ4.jpg','https://cdn.nekos.life/wallpaper/CPOc_bMAh2Q.png','https://cdn.nekos.life/wallpaper/Ew57S1KtqsY.jpg','https://cdn.nekos.life/wallpaper/hVpFbYJmZZc.jpg','https://cdn.nekos.life/wallpaper/sb9_J28pftY.jpg','https://cdn.nekos.life/wallpaper/JDoIi_IOB04.jpg','https://cdn.nekos.life/wallpaper/rG76AaUZXzk.jpg','https://cdn.nekos.life/wallpaper/9ru2luBo360.png','https://cdn.nekos.life/wallpaper/ghCgiWFxGwY.png','https://cdn.nekos.life/wallpaper/OSR-i-Rh7ZY.png','https://cdn.nekos.life/wallpaper/65VgtPyweCc.jpg','https://cdn.nekos.life/wallpaper/3vn-0FkNSbM.jpg','https://cdn.nekos.life/wallpaper/u02Y0-AJPL0.jpg','https://cdn.nekos.life/wallpaper/-Z-0fGflRc.jpg','https://cdn.nekos.life/wallpaper/3VjNKqEPp58.jpg','https://cdn.nekos.life/wallpaper/NoG4lKnk6Sc.jpg','https://cdn.nekos.life/wallpaper/xiTxgRMA_IA.jpg','https://cdn.nekos.life/wallpaper/yq1ZswdOGpg.png','https://cdn.nekos.life/wallpaper/4SUxw4M3UMA.png','https://cdn.nekos.life/wallpaper/cUPnQOHNLg0.jpg','https://cdn.nekos.life/wallpaper/zczjuLWRisA.jpg','https://cdn.nekos.life/wallpaper/TcxvU_diaC0.png','https://cdn.nekos.life/wallpaper/7qqWhEF_uoY.jpg','https://cdn.nekos.life/wallpaper/J4t_7DvoUZw.jpg','https://cdn.nekos.life/wallpaper/xQ1Pg5D6J4U.jpg','https://cdn.nekos.life/wallpaper/aIMK5Ir4xho.jpg','https://cdn.nekos.life/wallpaper/6gneEXrNAWU.jpg','https://cdn.nekos.life/wallpaper/PSvNdoISWF8.jpg','https://cdn.nekos.life/wallpaper/SjgF2-iOmV8.jpg','https://cdn.nekos.life/wallpaper/vU54ikOVY98.jpg','https://cdn.nekos.life/wallpaper/QjnfRwkRU-Q.jpg','https://cdn.nekos.life/wallpaper/uSKqzz6ZdXc.png','https://cdn.nekos.life/wallpaper/AMrcxZOnVBE.jpg','https://cdn.nekos.life/wallpaper/N1l8SCMxamE.jpg','https://cdn.nekos.life/wallpaper/n2cBaTo-J50.png','https://cdn.nekos.life/wallpaper/ZXcaFmpOlLk.jpg','https://cdn.nekos.life/wallpaper/7bwxy3elI7o.png','https://cdn.nekos.life/wallpaper/7VW4HwF6LcM.jpg','https://cdn.nekos.life/wallpaper/YtrPAWul1Ug.png','https://cdn.nekos.life/wallpaper/1p4_Mmq95Ro.jpg','https://cdn.nekos.life/wallpaper/EY5qz5iebJw.png','https://cdn.nekos.life/wallpaper/aVDS6iEAIfw.jpg','https://cdn.nekos.life/wallpaper/veg_xpHQfjE.jpg','https://cdn.nekos.life/wallpaper/meaSEfeq9QM.png','https://cdn.nekos.life/wallpaper/Xa_GtsKsy-s.png','https://cdn.nekos.life/wallpaper/6Bx8R6D75eM.png','https://cdn.nekos.life/wallpaper/zXOGXH_b8VY.png','https://cdn.nekos.life/wallpaper/VQcviMxoQ00.png','https://cdn.nekos.life/wallpaper/CJnRl-PKWe8.png','https://cdn.nekos.life/wallpaper/zEWYfFL_Ero.png','https://cdn.nekos.life/wallpaper/_C9Uc5MPaz4.png','https://cdn.nekos.life/wallpaper/zskxNqNXyG0.jpg','https://cdn.nekos.life/wallpaper/g7w14PjzzcQ.jpg','https://cdn.nekos.life/wallpaper/KavYXR_GRB4.jpg','https://cdn.nekos.life/wallpaper/Z_r9WItzJBc.jpg','https://cdn.nekos.life/wallpaper/Qps-0JD6834.jpg','https://cdn.nekos.life/wallpaper/Ri3CiJIJ6M8.png','https://cdn.nekos.life/wallpaper/ArGYIpJwehY.jpg','https://cdn.nekos.life/wallpaper/uqYKeYM5h8w.jpg','https://cdn.nekos.life/wallpaper/h9cahfuKsRg.jpg','https://cdn.nekos.life/wallpaper/iNPWKO8d2a4.jpg','https://cdn.nekos.life/wallpaper/j2KoFVhsNig.jpg','https://cdn.nekos.life/wallpaper/z5Nc-aS6QJ4.jpg','https://cdn.nekos.life/wallpaper/VUFoK8l1qs0.png','https://cdn.nekos.life/wallpaper/rQ8eYh5mXN8.png','https://cdn.nekos.life/wallpaper/D3NxNISDavQ.png','https://cdn.nekos.life/wallpaper/Z_CiozIenrU.jpg','https://cdn.nekos.life/wallpaper/np8rpfZflWE.jpg','https://cdn.nekos.life/wallpaper/ED-fgS09gik.jpg','https://cdn.nekos.life/wallpaper/AB0Cwfs1X2w.jpg','https://cdn.nekos.life/wallpaper/DZBcYfHouiI.jpg','https://cdn.nekos.life/wallpaper/lC7pB-GRAcQ.png','https://cdn.nekos.life/wallpaper/zrI-sBSt2zE.png','https://cdn.nekos.life/wallpaper/RJhylwaCLk.jpg','https://cdn.nekos.life/wallpaper/6km5m_GGIuw.png','https://cdn.nekos.life/wallpaper/3db40hylKs8.png','https://cdn.nekos.life/wallpaper/oggceF06ONQ.jpg','https://cdn.nekos.life/wallpaper/ELdH2W5pQGo.jpg','https://cdn.nekos.life/wallpaper/Zun_n5pTMRE.png','https://cdn.nekos.life/wallpaper/VqhFKG5U15c.png','https://cdn.nekos.life/wallpaper/NsMoiW8JZ60.jpg','https://cdn.nekos.life/wallpaper/XE4iXbw__Us.png','https://cdn.nekos.life/wallpaper/a9yXhS2zbhU.jpg','https://cdn.nekos.life/wallpaper/jjnd31_3Ic8.jpg','https://cdn.nekos.life/wallpaper/Nxanxa-xO3s.png','hithuttps://cdn.nekos.life/wallpaper/dBHlPcbuDc4.jpg','https://cdn.nekos.life/wallpaper/6wUZIavGVQU.jpg','https://cdn.nekos.life/wallpaper/-Z-0fGflRc.jpg','https://cdn.nekos.life/wallpaper/H9OUpIrF4gU.jpg','https://cdn.nekos.life/wallpaper/xlRdH3fBMz4.jpg','https://cdn.nekos.life/wallpaper/7IzUIeaae9o.jpg','https://cdn.nekos.life/wallpaper/FZCVL6PyWq0.jpg','https://cdn.nekos.life/wallpaper/5dG-HH6d0yw.png','https://cdn.nekos.life/wallpaper/ddxyA37HiwE.png','https://cdn.nekos.life/wallpaper/I0oj_jdCD4k.jpg','https://cdn.nekos.life/wallpaper/ABchTV97_Ts.png','https://cdn.nekos.life/wallpaper/58C37kkq39Y.png','https://cdn.nekos.life/wallpaper/HMS5mK7WSGA.jpg','https://cdn.nekos.life/wallpaper/1O3Yul9ojS8.jpg','https://cdn.nekos.life/wallpaper/hdZI1XsYWYY.jpg','https://cdn.nekos.life/wallpaper/h8pAJJnBXZo.png','https://cdn.nekos.life/wallpaper/apO9K9JIUp8.jpg','https://cdn.nekos.life/wallpaper/p8f8IY_2mwg.jpg','https://cdn.nekos.life/wallpaper/HY1WIB2r_cE.jpg','https://cdn.nekos.life/wallpaper/u02Y0-AJPL0.jpg','https://cdn.nekos.life/wallpaper/jzN74LcnwE8.png','https://cdn.nekos.life/wallpaper/IeAXo5nJhjw.jpg','https://cdn.nekos.life/wallpaper/7lgPyU5fuLY.jpg','https://cdn.nekos.life/wallpaper/f8SkRWzXVxk.png','https://cdn.nekos.life/wallpaper/ZmDTpGGeMR8.jpg','https://cdn.nekos.life/wallpaper/AMrcxZOnVBE.jpg','https://cdn.nekos.life/wallpaper/ZhP-f8Icmjs.jpg','https://cdn.nekos.life/wallpaper/7FyUHX3fE2o.jpg','https://cdn.nekos.life/wallpaper/CZoSLK-5ng8.png','https://cdn.nekos.life/wallpaper/pSNDyxP8l3c.png','https://cdn.nekos.life/wallpaper/AhYGHF6Fpck.jpg','https://cdn.nekos.life/wallpaper/ic6xRRptRes.jpg','https://cdn.nekos.life/wallpaper/89MQq6KaggI.png','https://cdn.nekos.life/wallpaper/y1DlFeHHTEE.png']
                             let walnimek = walnime[Math.floor(Math.random() * walnime.length)]
                             aruga.sendFileFromUrl(from, walnimek, 'Nimek.jpg', '', message.id)
-                        break
+                        break*/
                     case prefix+'aiquote' :
                             const aiquote = await axios.get("http://inspirobot.me/api?generate=true")
                             await aruga.sendFileFromUrl(from, aiquote.data, 'quote.jpg', 'FOLLOW NGAB \ :V https://www.instagram.com/_l_.lawliet_/' , id )
@@ -4286,6 +4359,7 @@ _Desc di update oleh : @${chat.groupMetadata.descOwner.replace('@c.us','')} pada
 		const txtx = body.slice(6)
 		const beattp = await axios.get(`https://api.xteam.xyz/attp?text=${txtx}`)
 		const beresult = beattp.data.result
+    console.log(color(`Text To Image processed for ${processTime(t, moment())} seconds`, 'aqua'))
 		aruga.sendRawWebpAsSticker(from, beresult, {author: authorr, pack: pack }, id)
 		break
                  case prefix+'kapan':
@@ -4364,9 +4438,9 @@ _Desc di update oleh : @${chat.groupMetadata.descOwner.replace('@c.us','')} pada
             await aruga.reply(from, hih, id)
             break
         case prefix+'bc':
-            if (!isOwnerB) return aruga.reply(from, `Perintah ini hanya untuk Owner Gabut-Bot`, id)
+            if (!isOwnerB) return aruga.reply(from, `Perintah ini hanya untuk Owner Santuy-Bot`, id)
                 bctxt = body.slice(4)
-                txtbc = `〘 *G A B U T - B O T* 〙\n\n${bctxt}`
+                txtbc = `〘 *S A N T U Y - B O T* 〙\n\n${bctxt}`
                 const semuagrup = await aruga.getAllChatIds();
                 if(quotedMsg && quotedMsg.type == 'image'){
                     const mediaData = await decryptMedia(quotedMsg)
