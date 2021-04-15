@@ -752,7 +752,7 @@ moment.tz.setDefault('Asia/Jakarta').locale('id')
                     aruga.reply(from, `Tidak Ada Foto Profile!`, id)
                 }
             break
-        case prefix+'tnc':
+        case prefix+'rules':
             await aruga.sendText(from, menuId.textTnC())
             break
         case prefix+'help':
@@ -766,7 +766,7 @@ moment.tz.setDefault('Asia/Jakarta').locale('id')
 			const jame = moment(t * 1000).format('HH:mm:ss')
             const nyoba2 = await aruga.getProfilePicFromServer(test0)
             if (nyoba2 == undefined) {
-                var php2 = 'https://i.ibb.co/t3X9p3v/gabut-Bot.jpg'
+                var php2 = 'https://i.ibb.co/VYD5pD8/Bot-By-Me-20210415-205935.jpg'
                 } else {
                 var php2 = nyoba2
                 }
@@ -1508,7 +1508,7 @@ if (args.length == 0) return aruga.reply(from, `Selama Bulan Suci Ramadhan 1442 
                 if (!isOwnerB) return aruga.reply(from, `Perintah ini hanya bisa di gunakan oleh Owner Bot!`, id)
                     const setnem = body.slice(9)
                     await aruga.setMyName(setnem)
-                    aruga.sendTextWithMentions(from, `Makasih Nama Barunya @${sender.id.replace('@c.us','')} 😘`)
+                    aruga.sendTextWithMentions(from, `Makasih Nama Barunya @${sender.id.replace('@c.us','')} 😘`, id)
                 break
                 case prefix+'read':
                     if (!isGroupMsg) return aruga.reply(from, `Perintah ini hanya bisa di gunakan dalam group!`, id)                
@@ -1520,7 +1520,7 @@ if (args.length == 0) return aruga.reply(from, `Selama Bulan Suci Ramadhan 1442 
                         for (let pembaca of reader) {
                         list += `- @${pembaca.id.replace(/@c.us/g, '')}\n` 
                     }
-                        aruga.sendTextWithMentions(from, `Ngeread doangg.. Nimbrung kagaa\n${list}`)
+                        aruga.sendTextWithMentions(from, `Ngeread doangg.. Nimbrung kagaa\n${list}`, id)
                     } catch(err) {
                         console.log(err)
                         aruga.reply(from, `Maaf, Belum Ada Yang Membaca Pesan Bot atau Mereka Menonaktifkan Read Receipts`, id)    
@@ -1530,7 +1530,7 @@ if (args.length == 0) return aruga.reply(from, `Selama Bulan Suci Ramadhan 1442 
                 if (!isOwnerB) return aruga.reply(from, `Perintah ini hanya bisa di gunakan oleh Owner Bot!`, id)
                     const setstat = body.slice(11)
                     await aruga.setMyStatus(setstat)
-                    aruga.sendTextWithMentions(from, `Makasih Status Barunya @${sender.id.replace('@c.us','')} 😘`)
+                    aruga.sendTextWithMentions(from, `Makasih Status Barunya @${sender.id.replace('@c.us','')} 😘`, id)
                 break
         case prefix+'botstat': {
             const loadedMsg = await aruga.getAmountOfLoadedMessages()
@@ -1787,6 +1787,7 @@ if (args.length == 0) return aruga.reply(from, `Selama Bulan Suci Ramadhan 1442 
                 const mediaData = await decryptMedia(quotedMsg, uaOverride)
                 const imageBase64 = `data:${quotedMsg.mimetype};base64,${mediaData.toString('base64')}`
                 await aruga.sendImageAsSticker(from, imageBase64, StickerMetadata)
+		    aruga.sendText(from, `Sticker processed for ${processTime(t, moment())} seconds`, id)
 				console.log(color(`Sticker processed for ${processTime(t, moment())} seconds`, 'aqua'))
 			} else {
 				aruga.reply(from, mess.error.St, id)
@@ -1799,7 +1800,9 @@ if (args.length == 0) return aruga.reply(from, `Selama Bulan Suci Ramadhan 1442 
                 const mediaData = await decryptMedia(message, uaOverride)
                 const imageBase64 = `data:${mimetype};base64,${mediaData.toString('base64')}`
                 await aruga.sendImageAsSticker(from, imageBase64, StickerMetadatacrop)
+				aruga.sendText(from, `Sticker processed for ${processTime(t, moment())} seconds`, id)
 				console.log(color(`Sticker processed for ${processTime(t, moment())} seconds`, 'aqua'))
+				await sleep(2000)
 				aruga.reply(from, `Haii ${pushname} jika ingin membuat stiker tanpa dipotong, silahkan post/reply foto dengan caption ${prefix}sfull`, id)
             } else if (quotedMsg && quotedMsg.type == 'image') {
                 const mediaData = await decryptMedia(quotedMsg, uaOverride)
@@ -1889,6 +1892,7 @@ if (args.length == 0) return aruga.reply(from, `Selama Bulan Suci Ramadhan 1442 
                     res.forEach(x=>{
                         if (x.jawaban.fotoJawaban.length == 0) {
                             aruga.reply(from, `➸ *Pertanyaan* : ${x.pertanyaan}\n\n➸ *Jawaban* : ${x.jawaban.judulJawaban}\n`, id)
+				await sleep(2000)
 			    aruga.sendText(from, `Selesai ✅, donasi kesini ya\n| Pulsa: 0895-1005-8082 | Pulsa : 0813-1997-1083 |`)
                         } else {
                             aruga.reply(from, `➸ *Pertanyaan* : ${x.pertanyaan}\n\n➸ *Jawaban* : ${x.jawaban.judulJawaban}\n\n➸ *Link foto jawaban* : ${x.jawaban.fotoJawaban.join('\n')}`, id)
@@ -1923,6 +1927,7 @@ if (args.length == 0) return aruga.reply(from, `Selama Bulan Suci Ramadhan 1442 
                         const videoBase64 = `data:${quotedMsg.mimetype};base64,${mediaData.toString('base64')}`
                         await aruga.sendMp4AsSticker(from, videoBase64, gifxyz, StickerMetadata)
                             .then(async () => {
+				aruga.sendText(from, `Sticker Gif processed for ${processTime(t, moment())} seconds`, id)
                                 console.log(color(`Sticker Gif processed for ${processTime(t, moment())} seconds`, 'aqua'))       
                             })
                     } catch (err) {
@@ -1943,6 +1948,7 @@ if (args.length == 0) return aruga.reply(from, `Selama Bulan Suci Ramadhan 1442 
                         const videoBase64 = `data:${mimetype};base64,${mediaData.toString('base64')}`
                         await aruga.sendMp4AsSticker(from, videoBase64, gifcrop, StickerMetadatacrop )
                             .then(async () => {
+				aruga.sendText(from, `Sticker Gif processed for ${processTime(t, moment())} seconds`, id)
                                 console.log(color(`Sticker Gif processed for ${processTime(t, moment())} seconds`, 'aqua'))            
                             })
                     } catch (err) {
@@ -2077,7 +2083,7 @@ aruga.reply(from, mess.wait, id)
 const buatnama = arg.split('|')[0]
 const namakelas = arg.split('|')[1]
 const textnya = arg.split('|')[3]
-aruga.sendFileFromUrl(from, `https://api.zeks.xyz/api/magernulis?nama=${buatnama}&kelas=${namakelas}&text=${textnya}&tinta=4`, 'img.jpg', 'nehh ngab... Awas ke cyduck guru lu wkwk', id)
+aruga.sendFileFromUrl(from, `https://api.zeks.xyz/api/magernulis?nama=${buatnama}&kelas=${namakelas}&text=${textnya}&tinta=4&apikey=apivinz`, 'img.jpg', 'nehh ngab... Awas ke cyduck guru lu wkwk', id)
 break
 
         //Islam Command
