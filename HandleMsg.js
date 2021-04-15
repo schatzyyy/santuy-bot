@@ -181,7 +181,7 @@ moment.tz.setDefault('Asia/Jakarta').locale('id')
         const argxx = commands.toLowerCase()
         const argss =  commands.split(' ')
 		const command = commands.toLowerCase().split(' ')[0] || ''
-		const prefix = /^[°•p÷×¶?£¢€¥®™?=|~`,*zxcv!?@#$%^&.\/\\©^]/.test(command) ? command.match(/^[!?#$^/\/\\©^]/gi) : '!'
+		const prefix = /^[Â°â€¢pÃ·Ã—Â¶?Â£Â¢â‚¬Â¥Â®â„¢?=|~`,*zxcv!?@#$%^&.\/\\Â©^]/.test(command) ? command.match(/^[!?#$^/\/\\Â©^]/gi) : '!'
         global.prefix
 		body = (type === 'chat' && body.startsWith(prefix)) ? body : (((type === 'image' || type === 'video') && caption) && caption.startsWith(prefix)) ? caption : ''
         const arg = body.trim().substring(body.indexOf(' ') + 1)
@@ -200,8 +200,8 @@ moment.tz.setDefault('Asia/Jakarta').locale('id')
 		const isQuotedGif = quotedMsg && quotedMsg.type === 'gif'
 		const isQuotedFile = quotedMsg && quotedMsg.type === 'file'
 		const reason = q ? q : 'Gada'
-		const gifcrop = { crop: true, square: 240, fps: 30, loop: 0, startTime: `00:00:00.0`, endTime: `00:00:10.0` }
-		const gifxyz = { crop: false, square: 240, fps: 30, loop: 0, startTime: `00:00:00.0`, endTime: `00:00:10.0` }
+		const gifcrop = { crop: true, square: 240, fps: 30, loop: 0, startTime: `00:00:00.0`, endTime: `00:00:15.0` }
+		const gifxyz = { crop: false, square: 240, fps: 30, loop: 0, startTime: `00:00:00.0`, endTime: `00:00:15.0` }
 		const StickerMetadatacrop = { author : 'Owner? @serbanewbie20', pack: 'Santuy-Bot', keepScale: false }
 		const StickerMetadata = { author : 'Owner? @serbanewbie20', pack: 'Santuy-Bot', keepScale: true }
 
@@ -1422,7 +1422,7 @@ if (args.length == 0) return aruga.reply(from, `Selama Bulan Suci Ramadhan 1442 
                 const datplay = datplai.data
                 let wtpdst =  `*? WATTPAD ?*\n\n*Hasil Pencarian : ${wpstry}*\n`
                 for (let i = 0; i < datplay.parts.length; i++) {
-                    wtpdst += `\n-----------------\n\n*A U T H O R :* ${datplay.author.name}\n\n• *Judul :* ${datplay.title}\n• *Dibaca :* ${datplay.reads}\n• *Votes :* ${datplay.votes}\n• *Jumlah Episode :* ${datplay.parts_count}\n• *Deskripsi :* ${datplay.desc}\n\n• *Title :* ${datplay[i].title}\n• *URL :* ${datplay[i].url}\n`
+                    wtpdst += `\n-----------------\n\n*A U T H O R :* ${datplay.author.name}\n\nâ€¢ *Judul :* ${datplay.title}\nâ€¢ *Dibaca :* ${datplay.reads}\nâ€¢ *Votes :* ${datplay.votes}\nâ€¢ *Jumlah Episode :* ${datplay.parts_count}\nâ€¢ *Deskripsi :* ${datplay.desc}\n\nâ€¢ *Title :* ${datplay[i].title}\nâ€¢ *URL :* ${datplay[i].url}\n`
                 }
                 await aruga.sendFileFromUrl(from, datplay.thumb, 'image.jpg', wtpdst, id)
             } catch (err){
@@ -1434,7 +1434,7 @@ if (args.length == 0) return aruga.reply(from, `Selama Bulan Suci Ramadhan 1442 
 				await aruga.reply(from, mess.wait, id)
 				axios.get(`https://tobz-api.herokuapp.com/api/youwatch?q=${body.slice(10)}&apikey=BotWeA`)
 				.then(async (res) => {
-					aruga.sendFileFromUrl(from, res.data.result[0].image, 'img.jpg', `• *Title:* ${res.data.result[0].title}\n• *Viewers:* ${res.data.result[0].views}\n• *Type:* ${res.data.result[0].type}\n• *Year:* ${res.data.result[0].year}\n• *Country:* ${res.data.result[0].country}\n• *Genre:* ${res.data.result[0].genre}\n• *Link:* ${res.data.result[0].link}`, id)
+					aruga.sendFileFromUrl(from, res.data.result[0].image, 'img.jpg', `â€¢ *Title:* ${res.data.result[0].title}\nâ€¢ *Viewers:* ${res.data.result[0].views}\nâ€¢ *Type:* ${res.data.result[0].type}\nâ€¢ *Year:* ${res.data.result[0].year}\nâ€¢ *Country:* ${res.data.result[0].country}\nâ€¢ *Genre:* ${res.data.result[0].genre}\nâ€¢ *Link:* ${res.data.result[0].link}`, id)
 					.catch((err) => {
 						aruga.reply(from, err, id)
 					})
@@ -1446,7 +1446,7 @@ if (args.length == 0) return aruga.reply(from, `Selama Bulan Suci Ramadhan 1442 
                         const pilem = body.slice(10)
 						axios.get(`https://api-filmapik.herokuapp.com/search?q=${pilem}`)
 						.then(async(res) => {
-                            await aruga.sendFileFromUrl(from, res.data.result[0].detail.thumbnailLandscape, 'thumb.jpg', `• *Judul :* ${res.data.result[0].title}\n• *Rating :* ${res.data.result[0].rating}\n• *Quality :* ${res.data.result[0].quality}\n• *Id Movie :* ${res.data.result[0].movieId}\n• *Views :* ${res.data.result[0].detail.views}\n• *Genre :* ${res.data.result[0].detail.genre}\n• *Director :* ${res.data.result[0].detail.director}\n• *Actors :* ${res.data.result[0].detail.actors}\n• *Country :* ${res.data.result[0].detail.country}\n• *Duration :* ${res.data.result[0].detail.duration}\n• *Release Year :* ${res.data.result[0].detail.release}\n\n• *Description :* ${res.data.result[0].detail.description}`, id)
+                            await aruga.sendFileFromUrl(from, res.data.result[0].detail.thumbnailLandscape, 'thumb.jpg', `â€¢ *Judul :* ${res.data.result[0].title}\nâ€¢ *Rating :* ${res.data.result[0].rating}\nâ€¢ *Quality :* ${res.data.result[0].quality}\nâ€¢ *Id Movie :* ${res.data.result[0].movieId}\nâ€¢ *Views :* ${res.data.result[0].detail.views}\nâ€¢ *Genre :* ${res.data.result[0].detail.genre}\nâ€¢ *Director :* ${res.data.result[0].detail.director}\nâ€¢ *Actors :* ${res.data.result[0].detail.actors}\nâ€¢ *Country :* ${res.data.result[0].detail.country}\nâ€¢ *Duration :* ${res.data.result[0].detail.duration}\nâ€¢ *Release Year :* ${res.data.result[0].detail.release}\n\nâ€¢ *Description :* ${res.data.result[0].detail.description}`, id)
                             console.log('Success sending Movie From Query')
                         })
 						.catch((err) => {
@@ -1463,7 +1463,7 @@ if (args.length == 0) return aruga.reply(from, `Selama Bulan Suci Ramadhan 1442 
                 const dataplay = dataplai.data.result
                  let shopeq = `*? SHOPEE ?*\n\n*Hasil Pencarian : ${shopek}*\n`
                 for (let i = 0; i < dataplay.items.length; i++) {
-                    shopeq += `\n-----------------\n\n• *Nama* : ${dataplay.items[i].nama}\n• Harga* : ${dataplay.items[i].harga}\n• *Terjual* : ${dataplay.items[i].terjual}\n• *Lokasi Toko* : ${dataplay.items[i].shop_location}\n• *Deskripsi* : ${dataplay.items[i].description}\n• *Link Product : ${dataplay.items[i].link_product}*\n`
+                    shopeq += `\n-----------------\n\nâ€¢ *Nama* : ${dataplay.items[i].nama}\nâ€¢ Harga* : ${dataplay.items[i].harga}\nâ€¢ *Terjual* : ${dataplay.items[i].terjual}\nâ€¢ *Lokasi Toko* : ${dataplay.items[i].shop_location}\nâ€¢ *Deskripsi* : ${dataplay.items[i].description}\nâ€¢ *Link Product : ${dataplay.items[i].link_product}*\n`
                 }
                 await aruga.sendFileFromUrl(from, dataplay.items[0].image_cover, `shopee.jpg`, shopeq, id)
             } catch (err){
@@ -1480,7 +1480,7 @@ if (args.length == 0) return aruga.reply(from, `Selama Bulan Suci Ramadhan 1442 
                 const dataplay = dataplai.data
                  let keluarplay = `*? PLAYSTORE ?*\n\nHasil Pencarian : ${keywotp}*\n`
                 for (let i = 0; i < dataplay.result.length; i++) {
-                    keluarplay += `\n-----------------\n\n• *Nama* : ${dataplay.result[i].title}\n• *Developer* : ${dataplay.result[i].developer}\n• *Deskripsi* : ${dataplay.result[i].description}\n• *Paket ID* : ${dataplay.result[i].app_id}\n• *Harga* : ${dataplay.result[i].price}\n• *Link App* : https://play.google.com${dataplay.result[i].url}\n`
+                    keluarplay += `\n-----------------\n\nâ€¢ *Nama* : ${dataplay.result[i].title}\nâ€¢ *Developer* : ${dataplay.result[i].developer}\nâ€¢ *Deskripsi* : ${dataplay.result[i].description}\nâ€¢ *Paket ID* : ${dataplay.result[i].app_id}\nâ€¢ *Harga* : ${dataplay.result[i].price}\nâ€¢ *Link App* : https://play.google.com${dataplay.result[i].url}\n`
                 }
                 await aruga.sendFileFromUrl(from, dataplay.result[0].icon, `iconapk.webp`, keluarplay, id)
             } catch (err){
@@ -1502,7 +1502,7 @@ if (args.length == 0) return aruga.reply(from, `Selama Bulan Suci Ramadhan 1442 
             let halaman = global.page ? global.page : await aruga.getPage()
             await halaman.evaluate((chatId, subject) =>
             Store.WapQuery.changeSubject(chatId, subject),groupId, `${namagrup}`)
-            aruga.sendTextWithMentions(from, `Nama group telah diubah oleh admin @${sender.id.replace('@c.us','')}\n\n• Before: ${sebelum}\n• After: ${namagrup}`)
+            aruga.sendTextWithMentions(from, `Nama group telah diubah oleh admin @${sender.id.replace('@c.us','')}\n\nâ€¢ Before: ${sebelum}\nâ€¢ After: ${namagrup}`)
             break
         case prefix+'setname':
                 if (!isOwnerB) return aruga.reply(from, `Perintah ini hanya bisa di gunakan oleh Owner Bot!`, id)
@@ -1834,7 +1834,7 @@ if (args.length == 0) return aruga.reply(from, `Selama Bulan Suci Ramadhan 1442 
 				.then(async ({ result }) => {
 					let mov = '*-----? MOVIE ?-----*'
 					for (let i = 0; i < result.length; i++) {
-						mov += `\n\n• *Judul :* ${result[i].title}\n• *URL Download :* ${result[i].url}\n\n=_=_=_=_=_=_=_=_=_=_=_=_=`
+						mov += `\n\nâ€¢ *Judul :* ${result[i].title}\nâ€¢ *URL Download :* ${result[i].url}\n\n=_=_=_=_=_=_=_=_=_=_=_=_=`
 					}
 					await aruga.sendFileFromUrl(from, result[0].thumb, 'thumb.jpg', mov, id)
 					console.log('Success sending Movie from query')
@@ -1851,7 +1851,7 @@ if (args.length == 0) return aruga.reply(from, `Selama Bulan Suci Ramadhan 1442 
                     .then(async ({ result }) => {
                         let watpd = '*-----? WATTPAD ?-----*'
                         for (let i = 0; i < result.length; i++) {
-                            watpd += `\n\n• *Judul :* ${result[i].title}\n• *Dibaca :* ${result[i].reads}\n• *Votes :* ${result[i].votes}\n\n• *Deskripsi :* ${result[i].description}\n• *URL :* ${result[i].url}`
+                            watpd += `\n\nâ€¢ *Judul :* ${result[i].title}\nâ€¢ *Dibaca :* ${result[i].reads}\nâ€¢ *Votes :* ${result[i].votes}\n\nâ€¢ *Deskripsi :* ${result[i].description}\nâ€¢ *URL :* ${result[i].url}`
                         }
                         await aruga.sendFileFromUrl(from, `${result[0].thumb}`, 'image.jpg', watpd, id)
                         console.log('Success Sending Detail')
@@ -1868,7 +1868,7 @@ if (args.length == 0) return aruga.reply(from, `Selama Bulan Suci Ramadhan 1442 
                         .then(async ({ result }) => {
                             let neoni = '*-----? NEONIME ?-----*'
                             for (let i = 0; i < result.length; i++){
-                                neoni +=`\n\n• *Judul :* ${result[i].title}\n• *Url :* ${result[i].url}\n• *Deskripsi :* ${result[i].desc}\n\n=_=_=_=_=_=_=_=_=_=_=_=_=`
+                                neoni +=`\n\nâ€¢ *Judul :* ${result[i].title}\nâ€¢ *Url :* ${result[i].url}\nâ€¢ *Deskripsi :* ${result[i].desc}\n\n=_=_=_=_=_=_=_=_=_=_=_=_=`
                             }
                             await aruga.sendFileFromUrl(from, result[0].thumb, 'img.jpg', neoni, id)
                             console.log(`Succes sending ${body.slice(9)}`)
@@ -2094,7 +2094,7 @@ break
                 .then((response) => {
                     let hehex = '+--?? List Surah ??--\n'
                     for (let i = 0; i < response.data.data.length; i++) {
-                        hehex += '¦? '
+                        hehex += 'Â¦? '
                         hehex += response.data.data[i].name.transliteration.id.toLowerCase() + '\n'
                             }
                         hehex += '+-? *S A N T U Y -  B O T* ?'
@@ -2244,7 +2244,7 @@ break
                 const dataplay = dataplai.data
                  let alkitabb = `*? ALKITAB SEARCH ?*\n\n*Hasil Pencarian:* ${alkitabx}\n`
                 for (let i = 0; i < dataplay.result.length; i++) {
-                    alkitabb += `\n-----------------\n\n• *Ayat* : ${dataplay.result[i].ayat}\n• *Isi* : ${dataplay.result[i].isi}\n`
+                    alkitabb += `\n-----------------\n\nâ€¢ *Ayat* : ${dataplay.result[i].ayat}\nâ€¢ *Isi* : ${dataplay.result[i].isi}\n`
                 }
                 await aruga.reply(from, alkitabb, id)
             } catch (err){
@@ -2337,7 +2337,7 @@ break
             case prefix+'distance':
                 if (!isGroupMsg) return aruga.reply(from, `Perintah ini hanya bisa di gunakan dalam group!`, id)
                 if (args.length === 0) return aruga.reply(from, `[?] Kirim perintah *${prefix}distance [ Daerah1|Daerah2 ]*\ncontoh : *${prefix}distance Jakarta|Bandung*`)
-                aruga.reply(from, `[WAIT] Sedang di proses? silahkan tunggu ± 1 min!`, id)
+                aruga.reply(from, `[WAIT] Sedang di proses? silahkan tunggu Â± 1 min!`, id)
                 try {
                     const dfdc1 = arg.split('|')[0]
                     const dfdc2 = arg.split('|')[1]
@@ -2370,7 +2370,7 @@ if (args.length == 0) return aruga.reply(from, `Selama Bulan Suci Ramadhan 1442 
 					.then(async ({ result }) => {
 						let jav = '-----[ *Jav Cosplay* ]-----'
 						for (let i = 0; i < result.length; i++) {
-							jav += `\n\n• *Title :* ${result[i].title}\n• *Detail :* ${result[i].detail}\n• *URL :* ${result[i].url}\n\n=_=_=_=_=_=_=_=_=_=_=_=_=`
+							jav += `\n\nâ€¢ *Title :* ${result[i].title}\nâ€¢ *Detail :* ${result[i].detail}\nâ€¢ *URL :* ${result[i].url}\n\n=_=_=_=_=_=_=_=_=_=_=_=_=`
 						}
 						await aruga.reply(from, jav, id)
 						console.log('Succes Sending Jav Cosplay')
@@ -2573,7 +2573,7 @@ case prefix+'ytsearch':
         const { result } = await jsonserc
         let xixixi = `*? YOUTUBE SEARCH ?*\n\n*Hasil Pencarian : ${ytsher}*\n`
         for (let i = 0; i < result.length; i++) {
-            xixixi += `\n-----------------\n\n• *Judul* : ${result[i].title}\n• *Ditonton* : ${result[i].views}\n• *Durasi* : ${result[i].duration}\n• *Channel* : ${result[i].channel}\n• *URL* : ${result[i].urlyt}\n`
+            xixixi += `\n-----------------\n\nâ€¢ *Judul* : ${result[i].title}\nâ€¢ *Ditonton* : ${result[i].views}\nâ€¢ *Durasi* : ${result[i].duration}\nâ€¢ *Channel* : ${result[i].channel}\nâ€¢ *URL* : ${result[i].urlyt}\n`
         }
         await aruga.sendFileFromUrl(from, result[0].image, 'thumbserc.jpg', xixixi, id)
     } catch (err) {
@@ -2891,7 +2891,7 @@ case prefix+'ytsearch':
     const { download } = kusondat
     let kusonimx = `*Title:* ${kusondat.title}\n*Title JP:* ${kusondat.title_jp}\n*Genre:* ${kusondat.genre}\n*Season:* ${kusondat.season}\n*Producer:* ${kusondat.producer}\n*Type:* ${kusondat.type}\n*Status:* ${kusondat.status}\n*Score:* ${kusondat.score}\n*Duration:* ${kusondat.duration}\n*Released On:* ${kusondat.released_on}\n*Description:* ${kusondat.description}\n`
     for (let i = 0; i < download.length; i++) {
-      kusonimx += `\n-----------------\n\n*•Resolution:* ${download[i].resolution}\n*•Web Down:* ${download[i].download_list[0].downloader}\n*•Link Down:* ${download[i].download_list[0].download_link}\n`
+      kusonimx += `\n-----------------\n\n*â€¢Resolution:* ${download[i].resolution}\n*â€¢Web Down:* ${download[i].download_list[0].downloader}\n*â€¢Link Down:* ${download[i].download_list[0].download_link}\n`
     }
     await aruga.sendFileFromUrl(from, kusondat.thumbs, 'kusonime.jpg', kusonimx, id)
   } catch (err) {
@@ -3649,7 +3649,7 @@ console.log(err)
         const happymod = await axios.get(`https://tobz-api.herokuapp.com/api/happymod?q=${body.slice(10)}&apikey=BotWeA`)
                 if (happymod.data.error) return aruga.reply(from, happymod.data.error, id)
                 const modo = happymod.data.result[0]
-                const resmod = `• *Title* : ${modo.title}\n• *Purchase* : ${modo.purchase}\n• *Size* : ${modo.size}\n• *Root* : ${modo.root}\n• *Version* : ${modo.version}\n• *Price* : ${modo.price}\n• *Link* : ${modo.link}\n• *Download* : ${modo.download}`
+                const resmod = `â€¢ *Title* : ${modo.title}\nâ€¢ *Purchase* : ${modo.purchase}\nâ€¢ *Size* : ${modo.size}\nâ€¢ *Root* : ${modo.root}\nâ€¢ *Version* : ${modo.version}\nâ€¢ *Price* : ${modo.price}\nâ€¢ *Link* : ${modo.link}\nâ€¢ *Download* : ${modo.download}`
                 aruga.sendFileFromUrl(from, modo.image, 'HAPPYMOD.jpg', resmod, id)
         break
 	case prefix+'bot':
@@ -3710,12 +3710,12 @@ console.log(err)
             const namagcnih = name
             const memchu = chat.groupMetadata.participants.length
             const groupMem = await aruga.getGroupMembers(groupId)
-            let hehex = `Name Group : *${namagcnih}*\n\nTotal Members : *${memchu}*\n\n+--?? Mention All ??--\n¦\n`
+            let hehex = `Name Group : *${namagcnih}*\n\nTotal Members : *${memchu}*\n\n+--?? Mention All ??--\nÂ¦\n`
             for (let i = 0; i < groupMem.length; i++) {
-                hehex += `¦?`
+                hehex += `Â¦?`
                 hehex += ` @${groupMem[i].id.replace(/@c.us/g, '')}\n`
             }
-            hehex += '¦\n+-? *E X Z U K A  B O T* ?'
+            hehex += 'Â¦\n+-? *E X Z U K A  B O T* ?'
             await aruga.sendTextWithMentions(from, `Info dari : @${sender.id.replace(/@c.us/g, '')}\n\n` +textInfo+ '\n\n' +hehex, true)
             break
 		case prefix+'katakasar':
@@ -4155,7 +4155,7 @@ _Desc di update oleh : @${chat.groupMetadata.descOwner.replace('@c.us','')} pada
                             const bacul = dbcot
                             let bacotanmu = `+--?? *List Bacot!* ??--\n`
                             for (let i = 0; i < bacul.length; i++) {
-                                bacotanmu += '¦?'
+                                bacotanmu += 'Â¦?'
                                 bacotanmu += ` ${bacul[i]}\n`
                             }
                             bacotanmu += '+-? *E X Z U K A  B O T* ?'
@@ -4163,9 +4163,9 @@ _Desc di update oleh : @${chat.groupMetadata.descOwner.replace('@c.us','')} pada
                             break
                         case prefix+'premlist':
                             const premlist = prem
-                            let kuntul =  `+--?? *Prem Member!* ??--\n¦?Total Premium user : ${prem.length}\n`
+                            let kuntul =  `+--?? *Prem Member!* ??--\nÂ¦?Total Premium user : ${prem.length}\n`
                             for (let i = 0; i < premlist.length; i++) {
-                                kuntul += `¦?`
+                                kuntul += `Â¦?`
                                 kuntul += `${premlist[i].replace(/@c.us/g, '')}\n`
                             }
                             kuntul += '+-? *E X Z U K A  B O T* ?'
@@ -4193,7 +4193,7 @@ _Desc di update oleh : @${chat.groupMetadata.descOwner.replace('@c.us','')} pada
 							const imagick = listimg
 							let kemtull = `+--?? *List Image!* ??--\n`
 							for (let i = 0; i < imagick.length; i++) {
-								kemtull += '¦?'
+								kemtull += 'Â¦?'
 								kemtull += `${imagick[i]}\n`
 							}
 							kemtull += '+-? *E X Z U K A  B O T* ?'
@@ -4203,7 +4203,7 @@ _Desc di update oleh : @${chat.groupMetadata.descOwner.replace('@c.us','')} pada
 							const vnlist = listvn
 							let kemtul = `+--?? *List VN!* ??--\n`
 							for (let i = 0; i < vnlist.length; i++) {
-								kemtul += '¦?'
+								kemtul += 'Â¦?'
 								kemtul += `${vnlist[i]}\n`
 							}
 							kemtul += '+-? *E X Z U K A  B O T* ?'
@@ -4213,7 +4213,7 @@ _Desc di update oleh : @${chat.groupMetadata.descOwner.replace('@c.us','')} pada
 							const stiklist = liststicker
 							let kumtul = `+--?? *List Sticker!* ??--\n`
 							for (let i = 0; i < stiklist.length; i++) {
-								kumtul += '¦?'
+								kumtul += 'Â¦?'
 								kumtul += `${stiklist[i]}\n`
 							}
 							kumtul += '+-? *E X Z U K A  B O T* ?'
@@ -4223,7 +4223,7 @@ _Desc di update oleh : @${chat.groupMetadata.descOwner.replace('@c.us','')} pada
                             const saylest = dsay
                             let kimtil = `+--?? *Say List!* ??--\n`
                             for (let i = 0; i < saylest.length; i++) {
-                                kimtil += '¦?'
+                                kimtil += 'Â¦?'
                                 kimtil += `${saylest[i]}\n`
                             }
                             kimtil += '+-? *E X Z U K A  B O T* ?'
@@ -4287,7 +4287,7 @@ _Desc di update oleh : @${chat.groupMetadata.descOwner.replace('@c.us','')} pada
                             if (args.length == 0) return aruga.reply(from, `Tidak ada ip Address, silahkan masuk ip address anda\nContoh : ${prefix}iplocation 180.242.215.107`, id)
                             axios.get(`https://ipapi.co/${body.slice(12)}/json/`)
                             .then(async(res) => {
-                                const addr = `• *Ip :* ${res.data.ip}\n• *Ip Version :* ${res.data.version}\n• *Negara :* ${res.data.country_name}\n• *Kode Negara :* ${res.data.country_code}\n• *Ibu Kota :* ${res.data.country_capital}\n• *Wilayah :* ${res.data.region}\n• *Kode Wilayah :* ${res.data.region_code}\n• *Postal :* ${res.data.postal}\n• *Latitude :* ${res.data.latitude}\n• *Longitude :* ${res.data.longitude}\n• *Timezone :* ${res.data.timezone}\n• *Utc Offset :* ${res.data.utc_offset}\n• *Kode Panggilan Negara :* ${res.data.country_calling_code}\n• *Mata Uang :* ${res.data.currency_name}\n• *Kode Mata Uang :* ${res.data.currency}\n• *Bahasa :* ${res.data.languages}\n• *Jumlah Wilayah :* ${res.data.country_area}\n• *Populasi Negara :* ${res.data.country_population}\n• *ASN :* ${res.data.asn}\n• *Provider :* ${res.data.org}`
+                                const addr = `â€¢ *Ip :* ${res.data.ip}\nâ€¢ *Ip Version :* ${res.data.version}\nâ€¢ *Negara :* ${res.data.country_name}\nâ€¢ *Kode Negara :* ${res.data.country_code}\nâ€¢ *Ibu Kota :* ${res.data.country_capital}\nâ€¢ *Wilayah :* ${res.data.region}\nâ€¢ *Kode Wilayah :* ${res.data.region_code}\nâ€¢ *Postal :* ${res.data.postal}\nâ€¢ *Latitude :* ${res.data.latitude}\nâ€¢ *Longitude :* ${res.data.longitude}\nâ€¢ *Timezone :* ${res.data.timezone}\nâ€¢ *Utc Offset :* ${res.data.utc_offset}\nâ€¢ *Kode Panggilan Negara :* ${res.data.country_calling_code}\nâ€¢ *Mata Uang :* ${res.data.currency_name}\nâ€¢ *Kode Mata Uang :* ${res.data.currency}\nâ€¢ *Bahasa :* ${res.data.languages}\nâ€¢ *Jumlah Wilayah :* ${res.data.country_area}\nâ€¢ *Populasi Negara :* ${res.data.country_population}\nâ€¢ *ASN :* ${res.data.asn}\nâ€¢ *Provider :* ${res.data.org}`
                                 aruga.reply(from, addr, id)
                             })
                             break
