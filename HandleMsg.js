@@ -446,7 +446,7 @@ moment.tz.setDefault('Asia/Jakarta').locale('id')
 
 
         const mess = {
-            wait: '[ WAIT ] Sedang di proses ? silahkan tunggu sebentar',
+            wait: '[ WAIT ] Sedang di proses ⏳ silahkan tunggu sebentar',
             error: {
                 St: `[?] Kirim gambar dengan caption *${prefix}sticker* atau tag gambar yang sudah dikirim`,
                 Ti: `[?] Replay sticker dengan caption *${prefix}stickertoimg* atau tag sticker yang sudah dikirim`,
