@@ -2081,12 +2081,12 @@ break
 	})
 	break 
         case prefix+'nulis':
-if (args.length == 0) return aruga.reply(from, `Fitur untuk menulis\nGunakan ${prefix}nulis nama|kelas|text\ncontoh : ${prefix} nulis Thoriq|XII TKR|ini teksnya`, id)
+if (args.length == 0) return aruga.reply(from, `Fitur untuk menulis\nGunakan ${prefix}nulis nama|kelas|text\ncontoh : ${prefix}nulis Thoriq|XII TKR|ini teksnya`, id)
 aruga.reply(from, mess.wait, id)
 const buatnama = arg.split('|')[0]
 const namakelas = arg.split('|')[1]
 const textnya = arg.split('|')[2]
-aruga.sendFileFromUrl(from, `https://api.zeks.xyz/api/magernulis?nama=${buatnama}&kelas=${namakelas}&text=${textnya}&tinta=4`, 'img.jpg', 'nehh ngab... Awas ke cyduck guru lu wkwk', id)
+aruga.sendFileFromUrl(from, `https://api.zeks.xyz/api/magernulis?nama=${buatnama}&kelas=${namakelas}&text=${textnya}&tinta=4&apikey=apivinz`, 'img.jpg', 'nehh ngab... Awas ke cyduck guru lu wkwk', id)
 break
 
         //Islam Command
@@ -4149,9 +4149,9 @@ _Desc di update oleh : @${chat.groupMetadata.descOwner.replace('@c.us','')} pada
                     }
                     break
                     case prefix+'screen': {
-                        if (!isOwnerB) return await aruga.reply(from, 'Fitur ini hanya dapat digunakan oleh admin bot')
+                        if (!isOwnerB) return await aruga.reply(from, 'Fitur ini hanya dapat digunakan oleh admin bot', id)
                         const snap = await aruga.getSnapshot()
-                        aruga.sendImage(from, snap, 'snapshot.png', 'Session Snapshot')
+                        aruga.sendImage(from, snap, 'snapshot.png', 'Session Snapshot', id)
                     }
                         break
                         case prefix+'listbacot':
@@ -4445,6 +4445,7 @@ _Desc di update oleh : @${chat.groupMetadata.descOwner.replace('@c.us','')} pada
             await aruga.reply(from, hih, id)
             break
         case prefix+'bc':
+        if (args.length == 0) return aruga.reply(from, `Text nya mana cok!!`, id)
             if (!isOwnerB) return aruga.reply(from, `Perintah ini hanya untuk Owner Santuy-Bot`, id)
                 bctxt = body.slice(4)
                 txtbc = `〘 *S A N T U Y - B O T* 〙\n\n${bctxt}`
@@ -4456,13 +4457,13 @@ _Desc di update oleh : @${chat.groupMetadata.descOwner.replace('@c.us','')} pada
                         var cekgrup = await aruga.getChatById(grupnya)
                         if(!cekgrup.isReadOnly) aruga.sendImage(grupnya, imageBase64, 'gambar.jpeg', txtbc)
                     }
-                    aruga.reply('Broadcast sukses!')
+                    aruga.reply(from, 'Broadcast sukses!', id)
                 }else{
                     for(let grupnya of semuagrup){
                         var cekgrup = await aruga.getChatById(grupnya)
                         if(!cekgrup.isReadOnly && isMuted(grupnya)) aruga.sendText(grupnya, txtbc)
                     }
-                            aruga.reply('Broadcast Success!')
+                            aruga.reply(from, 'Broadcast Success!', id)
                 }
                 break
             case prefix+'leaveall': //mengeluarkan bot dari semua group serta menghapus chatnya
